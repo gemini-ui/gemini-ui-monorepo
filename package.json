@@ -5,10 +5,16 @@
     "packages/components-blog",
     "website"
   ],
-  "scripts": {},
+  "scripts": {
+    "format": "npx prettier . --write"
+  },
   "dependencies": {
     "@astrojs/check": "^0.4.0",
     "astro": "^4.1.1",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.3"
   }
 }
