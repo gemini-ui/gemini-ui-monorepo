@@ -1,0 +1,23 @@
+{
+  "name": "@gemini-ui/components-blog",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "keywords": [
+    "astro-component"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "astro": "^4.1.1"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0",
+    "@gemini-ui/components": "^0.0.1"
+  }
+}
