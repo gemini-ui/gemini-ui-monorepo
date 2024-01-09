@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# ANSI escape code for basic colors
+GREEN="\033[0;32m"
+
+# ANSI escape code to reset the color
+NC="\033[0m" # No Color
+
+message="$(cat $1)"
+requiredPattern="^([a-z]+|BREAKING CHANGE)\((website|components|components-blog|repo)\): .*$"
+if ! [[ $message =~ $requiredPattern ]];
+then
+  echo ""
+  echo "🚨 Wrong commit message format! 🚨"
+  echo ""
+  echo "The commit message must have this format:"
+  echo "  <change type>(<package or app name>): <what was done>"
+  echo ""
+  echo "Recommended change types are:"
+  echo "  - feat (for new features)"
+  echo "  - fix (for bug fixes)"
+  echo "  - refactor (for code changes which don't add new features or fix bugs)"
+  echo "  - task (for non-coding task)"
+  echo "  - docs (for documentation changes)"
+  echo "  - style (for formatting, missing semi colons, etc)"
+  echo "  - test (for adding missing tests)"
+  echo "  - ci (for CI/CD changes)"
+  echo "  - BREAKING CHANGE (for public API changes which are not backwards compatible)"
+  echo ""
+  echo "Allowed packages or app names:"
+  echo "  website, components, components-blog, repo"
+  echo ""
+  echo "Example:"
+  echo "  feat(components): add button component"
+  echo ""
+  echo "Your commit message was:"
+  echo "  $message"
+  echo ""
+  echo "For more information, check script in .husky/commit-msg"
+  echo ""
+  exit 1
+fi
+
+echo "${GREEN}✔${NC} Validating commit message..."
