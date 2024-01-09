@@ -1,5 +1,5 @@
 {
-  "name": "@gemini-ui-astro/components",
+  "name": "@gemini-ui-astro/core",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -17,7 +17,6 @@
     "astro": "^4.1.1"
   },
   "peerDependencies": {
-    "astro": "^4.0.0",
-    "@gemini-ui-astro/core": "^0.0.1"
+    "astro": "^4.0.0"
   }
 }

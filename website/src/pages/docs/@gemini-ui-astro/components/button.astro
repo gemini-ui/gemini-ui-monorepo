@@ -1,0 +1,38 @@
+---
+import {
+  AnchorButton as GeminiAnchorButton,
+  Button as GeminiButton,
+} from "@gemini-ui-astro/components";
+import Layout from "../../../../layouts/Layout.astro";
+---
+
+<Layout title="Gemini UI - Button">
+  <main>
+    <div class="column center">
+      <GeminiButton>My Button</GeminiButton>
+      <GeminiAnchorButton href="#">My Anchor Button</GeminiAnchorButton>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
