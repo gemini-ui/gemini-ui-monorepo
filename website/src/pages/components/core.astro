@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Example } from "@gemini-ui-astro/components";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <Example />
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>
