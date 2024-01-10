@@ -3,5 +3,7 @@
 
 import AnchorButton from "./src/AnchorButton.astro";
 import Button from "./src/Button.astro";
+import Card from "./src/Card.astro";
+import CardGlow from "./src/CardGlow.astro";
 
-export { AnchorButton, Button };
+export { AnchorButton, Button, Card, CardGlow };

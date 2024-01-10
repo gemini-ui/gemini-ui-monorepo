@@ -6,6 +6,11 @@ export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {}
 const { class: className, ...props } = Astro.props;
 ---
 
+<!--
+TODO: Handle disabled
+TODO: Handle different color buttons
+TODO: Implement different button styles e.g. OutlineButton
+-->
 <button {...props} class={classMerge("gx-button", className)}>
   <slot />
 </button>
