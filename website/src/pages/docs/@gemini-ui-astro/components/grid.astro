@@ -1,42 +1,42 @@
 ---
-import { Grid } from "@gemini-ui-astro/components";
+import { Grid as GeminiGrid } from "@gemini-ui-astro/components";
 import Layout from "../../../../layouts/Layout.astro";
 ---
 
-<Layout title="Gemini UI - Grid">
+<Layout title="Gemini UI - GeminiGrid">
   <main>
-    <Grid container gap={2}>
-      <Grid xs={6} md={8}>
+    <GeminiGrid container gap="2">
+      <GeminiGrid xs="6" md="8">
         <div class="item">xs=6 md=8</div>
-      </Grid>
-      <Grid xs={6} md={4}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" md="4">
         <div class="item">xs=6 md=4</div>
-      </Grid>
-      <Grid xs={6} md={4}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" md="4">
         <div class="item">xs=6 md=4</div>
-      </Grid>
-      <Grid xs={6} md={8}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" md="8">
         <div class="item">xs=6 md=8</div>
-      </Grid>
-      <Grid xs={6} sm={3} md={8}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" sm="3" md="8">
         <div class="item">xs=6 sm=3 md=8</div>
-      </Grid>
-      <Grid xs={6} sm={3} md={4}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" sm="3" md="4">
         <div class="item">xs=6 sm=3 md=4</div>
-      </Grid>
-      <Grid xs={6} sm={3} md={4}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" sm="3" md="4">
         <div class="item">xs=6 sm=3 md=4</div>
-      </Grid>
-      <Grid xs={6} sm={3} md={8}>
+      </GeminiGrid>
+      <GeminiGrid xs="6" sm="3" md="8">
         <div class="item">xs=6 sm=3 md=8</div>
-      </Grid>
-      <Grid xs={12} sm={6}>
+      </GeminiGrid>
+      <GeminiGrid xs="12" sm="6">
         <div class="item">xs=12 sm=6</div>
-      </Grid>
-      <Grid xs={12} sm={6}>
+      </GeminiGrid>
+      <GeminiGrid xs="12" sm="6">
         <div class="item">xs=12 sm=6</div>
-      </Grid>
-    </Grid>
+      </GeminiGrid>
+    </GeminiGrid>
   </main>
 </Layout>
 
