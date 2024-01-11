@@ -91,6 +91,18 @@ import { Card, AnchorButton } from "@gemini-ui-astro/components";
     flex-basis: 300px;
     padding: 1.5rem;
   }
+  .instructions {
+    margin-bottom: 2rem;
+    outline: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(rgb(42, 31, 55), rgb(35, 23, 51));
+    padding: 1rem 1.5rem;
+  }
+  .link-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0;
+  }
   h1 {
     font-size: 4rem;
     font-weight: 700;
@@ -108,24 +120,8 @@ import { Card, AnchorButton } from "@gemini-ui-astro/components";
     margin-top: 0;
     margin-bottom: 0.25em;
   }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .no-wrap {
-    white-space: nowrap;
-  }
-  .instructions {
-    margin-bottom: 2rem;
-    outline: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(rgb(42, 31, 55), rgb(35, 23, 51));
-    padding: 1rem 1.5rem;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
+  p {
+    margin-block: 0.25em;
   }
   code {
     font-size: 0.6em;
@@ -136,20 +132,21 @@ import { Card, AnchorButton } from "@gemini-ui-astro/components";
     padding: 0.3em 0.4em;
     display: block;
   }
-  p {
-    margin-block: 0.25em;
-  }
-  .link-card-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 0;
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
   }
   .button {
     display: block;
     width: fit-content;
     margin-block-start: 1.25em;
     margin-left: auto;
+  }
+  .no-wrap {
+    white-space: nowrap;
   }
   .title-icon {
     margin-right: 0.25em;
