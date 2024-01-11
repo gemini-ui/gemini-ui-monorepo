@@ -3,8 +3,6 @@ import { classMerge } from "@gemini-ui-astro/core";
 export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
   auto?: boolean;
   container?: boolean;
-  fluid?: boolean;
-  containerMaxWidth?: string;
   xs?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   sm?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   md?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -32,11 +30,9 @@ const xsClass = xs && `gx-col-${xs}`;
 const smClass = sm && `gx-col-sm-${sm}`;
 const mdClass = md && `gx-col-md-${md}`;
 const lgClass = lg && `gx-col-lg-${lg}`;
-const fluidClass = fluid && "gx-fluid";
 const classList = classMerge(
   className,
   containerClass,
-  fluidClass,
   autoClass,
   gapClass,
   xsClass,
@@ -52,29 +48,13 @@ const containerMaxWidthValue = containerMaxWidth
   : defaultContainerMaxWidth;
 ---
 
-<div
-  {...props}
-  class={classList}
-  style={{
-    "--container-max-width": containerMaxWidthValue,
-  }}
->
+<div {...props} class={classList}>
   <slot />
 </div>
 <style lang="scss">
-  * {
-    box-sizing: border-box;
-  }
-
   .gx-grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-
-    &.fluid {
-      max-width: 100%;
-    }
   }
 
   .gx-grid-item {
