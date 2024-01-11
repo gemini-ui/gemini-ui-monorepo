@@ -27,7 +27,12 @@ export interface Props {}
 
       // angle of mouse position
       const angle =
-        (Math.atan2(mouseY - cardY, mouseX - cardX) * 180) / Math.PI;
+        (Math.atan2(
+          (mouseY - cardY) * card[i].offsetWidth ** 2,
+          (mouseX - cardX) * card[i].offsetHeight ** 2,
+        ) *
+          180) /
+        Math.PI;
 
       // update card
       card[i].style.setProperty("--angle", `${angle - 90}deg`);
