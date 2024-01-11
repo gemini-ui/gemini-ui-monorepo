@@ -34,34 +34,36 @@ import { Card, AnchorButton } from "@gemini-ui-astro/components";
       </defs>
     </svg>
     <h1>Welcome to <span class="no-wrap text-gradient">Gemini UI</span></h1>
-    <Card dynamicGlow class="instructions">
-      An open source component library for Astro. Build beautiful stellar user
-      interfaces with minimal effort.
-    </Card>
-    <div class="link-card-grid">
-      <Card class="card" dynamicGlow>
-        <h2><span class="title-icon">⚙️</span> Core Components</h2>
-        <p>
-          Build your project with the essentials. Includes all the basics you
-          need to get started.
-        </p>
-        <AnchorButton class="button" href="/docs/@gemini-ui-astro/components">
-          Docs <span>&rarr;</span>
-        </AnchorButton>
+    <div class="column">
+      <Card dynamicGlow class="instructions">
+        An open source component library for Astro. Build beautiful stellar user
+        interfaces with minimal effort.
       </Card>
-      <Card class="card" dynamicGlow>
-        <h2><span class="title-icon">📖</span> Blog Components</h2>
-        <p>
-          Build a blog with Gemini UI. Includes components for blog posts, hero
-          images, and more.
-        </p>
-        <AnchorButton
-          class="button"
-          href="/docs/@gemini-ui-astro/components-blog"
-        >
-          Docs <span>&rarr;</span>
-        </AnchorButton>
-      </Card>
+      <div class="link-card-grid">
+        <Card class="card" dynamicGlow>
+          <h2><span class="title-icon">⚙️</span> Core Components</h2>
+          <p>
+            Build your project with the essentials. Includes all the basics you
+            need to get started.
+          </p>
+          <AnchorButton class="button" href="/docs/@gemini-ui-astro/components">
+            Docs <span>&rarr;</span>
+          </AnchorButton>
+        </Card>
+        <Card class="card" dynamicGlow>
+          <h2><span class="title-icon">📖</span> Blog Components</h2>
+          <p>
+            Build a blog with Gemini UI. Includes components for blog posts,
+            hero images, and more.
+          </p>
+          <AnchorButton
+            class="button"
+            href="/docs/@gemini-ui-astro/components-blog"
+          >
+            Docs <span>&rarr;</span>
+          </AnchorButton>
+        </Card>
+      </div>
     </div>
   </main>
 </Layout>
@@ -86,14 +88,12 @@ import { Card, AnchorButton } from "@gemini-ui-astro/components";
     height: auto;
     z-index: -1;
   }
-  .card {
-    flex: 1;
-    flex-basis: 300px;
-    padding: 1.5rem;
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
   .instructions {
-    margin-bottom: 2rem;
-    outline: 1px solid rgba(var(--accent-light), 25%);
     background: linear-gradient(rgb(42, 31, 55), rgb(35, 23, 51));
     padding: 1rem 1.5rem;
   }
@@ -102,6 +102,11 @@ import { Card, AnchorButton } from "@gemini-ui-astro/components";
     flex-wrap: wrap;
     gap: 2rem;
     padding: 0;
+  }
+  .card {
+    flex: 1;
+    flex-basis: 300px;
+    padding: 1.5rem;
   }
   h1 {
     font-size: 4rem;
