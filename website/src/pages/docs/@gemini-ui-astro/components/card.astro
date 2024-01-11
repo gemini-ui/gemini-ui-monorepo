@@ -1,17 +1,17 @@
 ---
 import {
   Button,
-  CardGlow,
+  DynamicGlow,
   Card as GeminiCard,
 } from "@gemini-ui-astro/components";
 import Layout from "../../../../layouts/Layout.astro";
 ---
 
 <Layout title="Gemini UI - Card">
-  <CardGlow />
+  <DynamicGlow />
   <main>
     <div class="column center">
-      <GeminiCard class="example-card">
+      <GeminiCard class="example-card" dynamicGlow>
         <h2>Card Title 1</h2>
         <p>
           Officia non aliqua eu sunt nisi tempor fugiat magna. Cillum sint anim
@@ -24,7 +24,7 @@ import Layout from "../../../../layouts/Layout.astro";
         </p>
         <Button>Some Button</Button>
       </GeminiCard>
-      <GeminiCard class="example-card">
+      <GeminiCard class="example-card" dynamicGlow>
         <h2>Card Title 2</h2>
         <p>
           Aute consectetur nostrud Lorem aliquip officia deserunt nulla. Aliquip

@@ -1,16 +1,20 @@
 ---
 import { classMerge } from "@gemini-ui-astro/core";
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {}
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  dynamicGlow?: boolean;
+}
 
-const { class: className, ...props } = Astro.props;
+const { class: className, dynamicGlow, ...props } = Astro.props;
 ---
 
-<div {...props} class={classMerge("gx-card", className)}>
+<div
+  {...props}
+  class={classMerge("gx-card", dynamicGlow && "gx-dynamic-glow", className)}
+>
   <slot />
 </div>
 
-<!-- TODO: Desaturate glow accent with distance -->
 <style lang="scss">
   .gx-card {
     --angle: 45deg;
