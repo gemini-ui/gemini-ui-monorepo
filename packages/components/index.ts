@@ -3,5 +3,6 @@
 
 import AnchorButton from "./src/AnchorButton.astro";
 import Button from "./src/Button.astro";
+import Grid from "./src/Grid.astro";
 
-export { AnchorButton, Button };
+export { AnchorButton, Button, Grid };

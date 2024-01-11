@@ -1,0 +1,231 @@
+---
+import { classMerge } from "@gemini-ui-astro/core";
+
+export type NumberOrString<N extends number> = N | `${N}`;
+export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
+  auto?: boolean;
+  container?: boolean;
+  xs?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
+  sm?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
+  md?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
+  lg?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
+  gap?: NumberOrString<1 | 2 | 3 | 4 | 5>;
+  class?: string;
+}
+
+const {
+  container,
+  xs,
+  sm,
+  md,
+  lg,
+  auto,
+  gap,
+  class: className,
+  ...props
+} = Astro.props;
+const containerClass = container ? "gx-grid-container" : "gx-grid-item";
+const gapClass = gap && `gx-gap-${gap}`;
+const xsClass = xs && `gx-col-${xs}`;
+const smClass = sm && `gx-col-sm-${sm}`;
+const mdClass = md && `gx-col-md-${md}`;
+const lgClass = lg && `gx-col-lg-${lg}`;
+const classList = classMerge(
+  className,
+  containerClass,
+  gapClass,
+  xsClass,
+  smClass,
+  mdClass,
+  lgClass,
+);
+---
+
+<div {...props} class={classList}>
+  <slot />
+</div>
+<style lang="scss">
+  .gx-grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .gx-grid-item {
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  .gx-auto-columns {
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr));
+  }
+
+  .gx-gap-1 {
+    gap: 4px;
+  }
+  .gx-gap-2 {
+    gap: 8px;
+  }
+  .gx-gap-3 {
+    gap: 16px;
+  }
+  .gx-gap-4 {
+    gap: 24px;
+  }
+  .gx-gap-5 {
+    gap: 32px;
+  }
+
+  .gx-col-1 {
+    grid-column: span 1;
+  }
+  .gx-col-2 {
+    grid-column: span 2;
+  }
+  .gx-col-3 {
+    grid-column: span 3;
+  }
+  .gx-col-4 {
+    grid-column: span 4;
+  }
+  .gx-col-5 {
+    grid-column: span 5;
+  }
+  .gx-col-6 {
+    grid-column: span 6;
+  }
+  .gx-col-7 {
+    grid-column: span 7;
+  }
+  .gx-col-8 {
+    grid-column: span 8;
+  }
+  .gx-col-9 {
+    grid-column: span 9;
+  }
+  .gx-col-10 {
+    grid-column: span 10;
+  }
+  .gx-col-11 {
+    grid-column: span 11;
+  }
+  .gx-col-12 {
+    grid-column: span 12;
+  }
+
+  @media (min-width: 768px) {
+    .gx-col-sm-1 {
+      grid-column: span 1;
+    }
+    .gx-col-sm-2 {
+      grid-column: span 2;
+    }
+    .gx-col-sm-3 {
+      grid-column: span 3;
+    }
+    .gx-col-sm-4 {
+      grid-column: span 4;
+    }
+    .gx-col-sm-5 {
+      grid-column: span 5;
+    }
+    .gx-col-sm-6 {
+      grid-column: span 6;
+    }
+    .gx-col-sm-7 {
+      grid-column: span 7;
+    }
+    .gx-col-sm-8 {
+      grid-column: span 8;
+    }
+    .gx-col-sm-9 {
+      grid-column: span 9;
+    }
+    .gx-col-sm-10 {
+      grid-column: span 10;
+    }
+    .gx-col-sm-11 {
+      grid-column: span 11;
+    }
+    .gx-col-sm-12 {
+      grid-column: span 12;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gx-col-md-1 {
+      grid-column: span 1;
+    }
+    .gx-col-md-2 {
+      grid-column: span 2;
+    }
+    .gx-col-md-3 {
+      grid-column: span 3;
+    }
+    .gx-col-md-4 {
+      grid-column: span 4;
+    }
+    .gx-col-md-5 {
+      grid-column: span 5;
+    }
+    .gx-col-md-6 {
+      grid-column: span 6;
+    }
+    .gx-col-md-7 {
+      grid-column: span 7;
+    }
+    .gx-col-md-8 {
+      grid-column: span 8;
+    }
+    .gx-col-md-9 {
+      grid-column: span 9;
+    }
+    .gx-col-md-10 {
+      grid-column: span 10;
+    }
+    .gx-col-md-11 {
+      grid-column: span 11;
+    }
+    .gx-col-md-12 {
+      grid-column: span 12;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .gx-col-lg-1 {
+      grid-column: span 1;
+    }
+    .gx-col-lg-2 {
+      grid-column: span 2;
+    }
+    .gx-col-lg-3 {
+      grid-column: span 3;
+    }
+    .gx-col-lg-4 {
+      grid-column: span 4;
+    }
+    .gx-col-lg-5 {
+      grid-column: span 5;
+    }
+    .gx-col-lg-6 {
+      grid-column: span 6;
+    }
+    .gx-col-lg-7 {
+      grid-column: span 7;
+    }
+    .gx-col-lg-8 {
+      grid-column: span 8;
+    }
+    .gx-col-lg-9 {
+      grid-column: span 9;
+    }
+    .gx-col-lg-10 {
+      grid-column: span 10;
+    }
+    .gx-col-lg-11 {
+      grid-column: span 11;
+    }
+    .gx-col-lg-12 {
+      grid-column: span 12;
+    }
+  }
+</style>
