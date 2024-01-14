@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import { Card, AnchorButton } from "@gemini-ui-astro/components";
 ---
 
 <Layout title="Gemini UI">
@@ -34,25 +34,37 @@ import Card from "../components/Card.astro";
       </defs>
     </svg>
     <h1>Welcome to <span class="no-wrap text-gradient">Gemini UI</span></h1>
-    <p class="instructions">
-      An open source component library for Astro. Build beautiful stellar user
-      interfaces with minimal effort.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card href="/docs/@gemini-ui-astro/components" title="Core Components">
-        <code>npm install @gemini-ui-astro/components</code>
-        Build your project with the essentials. Includes all the basics you need
-        to get started.
+    <div class="column">
+      <Card dynamicGlow class="instructions">
+        An open source component library for Astro. Build beautiful stellar user
+        interfaces with minimal effort.
       </Card>
-      <Card
-        href="/docs/@gemini-ui-astro/components-blog"
-        title="Blog Components"
-      >
-        <code>npm install @gemini-ui-astro/components-blog</code>
-        Build a blog with Gemini UI. Includes components for blog posts, hero images,
-        and more.
-      </Card>
-    </ul>
+      <div class="link-card-grid">
+        <Card class="card" dynamicGlow>
+          <h2><span class="title-icon">⚙️</span> Core Components</h2>
+          <p>
+            Build your project with the essentials. Includes all the basics you
+            need to get started.
+          </p>
+          <AnchorButton class="button" href="/docs/@gemini-ui-astro/components">
+            Docs <span>&rarr;</span>
+          </AnchorButton>
+        </Card>
+        <Card class="card" dynamicGlow>
+          <h2><span class="title-icon">📖</span> Blog Components</h2>
+          <p>
+            Build a blog with Gemini UI. Includes components for blog posts,
+            hero images, and more.
+          </p>
+          <AnchorButton
+            class="button"
+            href="/docs/@gemini-ui-astro/components-blog"
+          >
+            Docs <span>&rarr;</span>
+          </AnchorButton>
+        </Card>
+      </div>
+    </div>
   </main>
 </Layout>
 
@@ -61,7 +73,7 @@ import Card from "../components/Card.astro";
     margin: auto;
     margin-top: 4.5rem;
     padding: 1rem;
-    width: 800px;
+    width: 1000px;
     max-width: calc(100% - 2rem);
     color: white;
     font-size: 20px;
@@ -76,6 +88,26 @@ import Card from "../components/Card.astro";
     height: auto;
     z-index: -1;
   }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .instructions {
+    background: linear-gradient(rgb(42, 31, 55), rgb(35, 23, 51));
+    padding: 1rem 1.5rem;
+  }
+  .link-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0;
+  }
+  .card {
+    flex: 1;
+    flex-basis: 300px;
+    padding: 1.5rem;
+  }
   h1 {
     font-size: 4rem;
     font-weight: 700;
@@ -87,6 +119,24 @@ import Card from "../components/Card.astro";
       font-size: 3rem;
     }
   }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+  p {
+    margin-block: 0.25em;
+  }
+  code {
+    font-size: 0.6em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+    display: block;
+  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -94,35 +144,16 @@ import Card from "../components/Card.astro";
     background-size: 400%;
     background-position: 0%;
   }
+  .button {
+    display: block;
+    width: fit-content;
+    margin-block-start: 1.25em;
+    margin-left: auto;
+  }
   .no-wrap {
     white-space: nowrap;
   }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-    margin-block: 0.8em;
-    display: block;
-  }
-  .link-card-grid {
-    display: grid;
-    gap: 2rem;
-    padding: 0;
+  .title-icon {
+    margin-right: 0.25em;
   }
 </style>

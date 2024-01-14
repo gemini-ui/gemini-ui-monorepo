@@ -1,0 +1,118 @@
+---
+export interface Props {}
+---
+
+<script>
+  let mouseX = 0;
+  let mouseY = window.innerHeight;
+  const trackedElements = new WeakSet<HTMLElement>();
+
+  function updateElement(element: HTMLElement) {
+    // center of element
+    const elementX = element.offsetLeft + element.offsetWidth / 2;
+    const elementY = element.offsetTop + element.offsetHeight / 2;
+
+    // distance from edge of element to mouse
+    const distanceX = Math.max(
+      0,
+      Math.abs(mouseX - elementX) - element.offsetWidth / 2,
+    );
+    const distanceY = Math.max(
+      0,
+      Math.abs(mouseY - elementY) - element.offsetHeight / 2,
+    );
+    const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+
+    // angle of mouse position
+    const angle =
+      (Math.atan2(
+        (mouseY - elementY) * element.offsetWidth ** 2,
+        (mouseX - elementX) * element.offsetHeight ** 2,
+      ) *
+        180) /
+      Math.PI;
+
+    // progress across the element from left to right / top to bottom
+    const progressX = Math.min(
+      1,
+      Math.max(0, mouseX - elementX + element.offsetWidth / 2) /
+        element.offsetWidth,
+    );
+    const progressY = Math.min(
+      1,
+      Math.max(0, mouseY - elementY + element.offsetHeight / 2) /
+        element.offsetHeight,
+    );
+
+    // update element
+    element.style.setProperty(
+      "--gx-element-width",
+      element.offsetWidth.toString(),
+    );
+    element.style.setProperty(
+      "--gx-element-height",
+      element.offsetHeight.toString(),
+    );
+    element.style.setProperty("--gx-mouse-distance-x", distanceX.toString());
+    element.style.setProperty("--gx-mouse-distance-y", distanceY.toString());
+    element.style.setProperty("--gx-mouse-distance", distance.toString());
+    element.style.setProperty("--gx-mouse-angle", `${angle - 90}deg`);
+    element.style.setProperty("--gx-mouse-progress-x", progressX.toString());
+    element.style.setProperty("--gx-mouse-progress-y", progressY.toString());
+    element.style.setProperty(
+      "--gx-element-width",
+      element.offsetWidth.toString(),
+    );
+    element.style.setProperty(
+      "--gx-element-height",
+      element.offsetHeight.toString(),
+    );
+  }
+
+  function trackElement(element: HTMLElement) {
+    if (trackedElements.has(element)) {
+      return;
+    }
+
+    trackedElements.add(element);
+
+    new ResizeObserver(() => {
+      updateElement(element);
+    }).observe(element);
+  }
+
+  function getElements() {
+    return document.querySelectorAll<HTMLElement>(".gx-dynamic-glow");
+  }
+
+  function updateAndTrackElements() {
+    getElements().forEach((element) => {
+      updateElement(element);
+      trackElement(element);
+    });
+  }
+
+  updateAndTrackElements();
+
+  new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node instanceof HTMLElement) {
+          if (node.classList.contains("gx-dynamic-glow")) {
+            trackElement(node);
+          }
+        }
+      });
+    });
+  }).observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+
+    updateAndTrackElements();
+  });
+</script>

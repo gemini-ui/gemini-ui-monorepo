@@ -1,0 +1,52 @@
+---
+import { classMerge } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  dynamicGlow?: boolean;
+}
+
+const { class: className, dynamicGlow, ...props } = Astro.props;
+---
+
+<div
+  {...props}
+  class={classMerge("gx-card", dynamicGlow && "gx-dynamic-glow", className)}
+>
+  <slot />
+</div>
+
+<style lang="scss">
+  .gx-card {
+    --gx-mouse-angle: 45deg;
+    --gx-mouse-distance: 0;
+
+    --percent: calc(75% / (1 + var(--gx-mouse-distance) / 100));
+    --shadow-size: calc(
+      max(8px, min(24px, calc(1000px / (1 + var(--gx-mouse-distance)))))
+    );
+
+    position: relative;
+    margin: 0.5px;
+    padding: 0.5rem 1rem;
+    background-color: #23262d;
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 0px 6px 0px,
+      rgba(138, 101, 240, 0.125) 0px 0px var(--shadow-size) 4px;
+    border-radius: 4px;
+
+    &:before {
+      content: "";
+      margin: -0.5px;
+      border-radius: inherit;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        var(--gx-mouse-angle),
+        rgba(138, 101, 240, 0.6),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.2) var(--percent)
+      );
+    }
+  }
+</style>
