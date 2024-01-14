@@ -29,7 +29,7 @@ then
   echo "  - BREAKING CHANGE (for public API changes which are not backwards compatible)"
   echo ""
   echo "Allowed packages or app names:"
-  echo "  website, components, components-blog, styles, repo"
+  echo "  website, core, components, components-blog, styles, repo"
   echo ""
   echo "Example:"
   echo "  feat(components): add button component"
