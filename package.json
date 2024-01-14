@@ -4,6 +4,7 @@
     "packages/components",
     "packages/components-blog",
     "packages/core",
+    "packages/styles",
     "website"
   ],
   "scripts": {

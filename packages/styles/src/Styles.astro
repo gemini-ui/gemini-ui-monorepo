@@ -1,0 +1,37 @@
+---
+export interface Props {
+  size?: {
+    0?: string;
+    1?: string;
+    2?: string;
+    3?: string;
+    4?: string;
+    5?: string;
+  };
+}
+
+const {
+  size: {
+    0: size0 = "0",
+    1: size1 = "0.25rem",
+    2: size2 = "0.5rem",
+    3: size3 = "0.75rem",
+    4: size4 = "1rem",
+    5: size5 = "1.25rem",
+  } = {},
+} = Astro.props;
+---
+
+<style
+  is:global
+  set:html={`
+    :root {
+      --gx-size-0: ${size0};
+      --gx-size-1: ${size1};
+      --gx-size-2: ${size2};
+      --gx-size-3: ${size3};
+      --gx-size-4: ${size4};
+      --gx-size-5: ${size5};
+    }
+  `}
+></style>
