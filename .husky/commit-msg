@@ -8,7 +8,7 @@ GREEN="\033[0;32m"
 NC="\033[0m" # No Color
 
 message="$(cat $1)"
-requiredPattern="^([a-z]+|BREAKING CHANGE)\((website|components|components-blog|styles|repo)\): .*$"
+requiredPattern="^([a-z]+|BREAKING CHANGE)\((website|core|components|components-blog|styles|repo)\): .*$"
 if ! [[ $message =~ $requiredPattern ]];
 then
   echo ""
