@@ -8,7 +8,7 @@ GREEN="\033[0;32m"
 NC="\033[0m" # No Color
 
 message="$(cat $1)"
-requiredPattern="^([a-z]+|BREAKING CHANGE)\((website|components|components-blog|repo)\): .*$"
+requiredPattern="^([a-z]+|BREAKING CHANGE)\((website|core|components|components-blog|styles|repo)\): .*$"
 if ! [[ $message =~ $requiredPattern ]];
 then
   echo ""
@@ -29,7 +29,7 @@ then
   echo "  - BREAKING CHANGE (for public API changes which are not backwards compatible)"
   echo ""
   echo "Allowed packages or app names:"
-  echo "  website, components, components-blog, repo"
+  echo "  website, core, components, components-blog, styles, repo"
   echo ""
   echo "Example:"
   echo "  feat(components): add button component"

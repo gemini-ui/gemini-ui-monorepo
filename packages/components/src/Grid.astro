@@ -1,7 +1,7 @@
 ---
-import { classMerge } from "@gemini-ui-astro/core";
+import type { NumberOrString, OptionalSizeProp } from "@gemini-ui-astro/core";
+import { classMerge, getSizeProp } from "@gemini-ui-astro/core";
 
-export type NumberOrString<N extends number> = N | `${N}`;
 export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
   auto?: boolean;
   container?: boolean;
@@ -9,7 +9,7 @@ export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
   sm?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
   md?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
   lg?: NumberOrString<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
-  gap?: NumberOrString<1 | 2 | 3 | 4 | 5>;
+  gap?: OptionalSizeProp;
   class?: string;
 }
 
@@ -25,15 +25,14 @@ const {
   ...props
 } = Astro.props;
 const containerClass = container ? "gx-grid-container" : "gx-grid-item";
-const gapClass = gap && `gx-gap-${gap}`;
 const xsClass = xs && `gx-col-${xs}`;
 const smClass = sm && `gx-col-sm-${sm}`;
 const mdClass = md && `gx-col-md-${md}`;
 const lgClass = lg && `gx-col-lg-${lg}`;
 const classList = classMerge(
+  "gx-grid",
   className,
   containerClass,
-  gapClass,
   xsClass,
   smClass,
   mdClass,
@@ -44,7 +43,16 @@ const classList = classMerge(
 <div {...props} class={classList}>
   <slot />
 </div>
-<style lang="scss">
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-gap": getSizeProp(gap, 4),
+  }}
+>
+  .gx-grid {
+    gap: var(--gx-gap);
+  }
   .gx-grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -53,26 +61,6 @@ const classList = classMerge(
   .gx-grid-item {
     box-sizing: border-box;
     display: flex;
-  }
-
-  .gx-auto-columns {
-    grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr));
-  }
-
-  .gx-gap-1 {
-    gap: 4px;
-  }
-  .gx-gap-2 {
-    gap: 8px;
-  }
-  .gx-gap-3 {
-    gap: 16px;
-  }
-  .gx-gap-4 {
-    gap: 24px;
-  }
-  .gx-gap-5 {
-    gap: 32px;
   }
 
   .gx-col-1 {
