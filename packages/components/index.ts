@@ -6,5 +6,6 @@ import Button from "./src/Button.astro";
 import Card from "./src/Card.astro";
 import DynamicGlow from "./src/DynamicGlow.astro";
 import Grid from "./src/Grid.astro";
+import Divider from "./src/Divider.astro";
 
-export { AnchorButton, Button, Card, DynamicGlow, Grid };
+export { AnchorButton, Button, Card, Divider, DynamicGlow, Grid };

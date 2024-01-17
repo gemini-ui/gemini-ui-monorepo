@@ -1,0 +1,46 @@
+---
+import { classMerge, OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface DividerProps {
+  class?: string;
+  thickness?: string;
+  orientation?: "horizontal" | "vertical";
+  color?: string;
+  mt?: OptionalSizeProp;
+  mb?: OptionalSizeProp;
+  ml?: OptionalSizeProp;
+  mr?: OptionalSizeProp;
+}
+
+const {
+  class: className,
+  thickness = "1px",
+  orientation = "horizontal",
+  color = "#323232",
+  mt = 0,
+  mb = 0,
+  ml = 0,
+  mr = 0,
+} = Astro.props;
+---
+
+<hr class={classMerge("gx-divider", className, `gx-divider-${orientation}`)} />
+
+<style lang="scss" define:vars={{ thickness, color, mt, mb, ml, mr }}>
+  .gx-divider {
+    border: 0;
+    margin: 0;
+    border-top: var(--thickness) solid var(--color);
+    margin-top: var(--mt);
+    margin-bottom: var(--mb);
+    margin-left: var(--ml);
+    margin-right: var(--mr);
+
+    &.gx-divider-vertical {
+      border-top: none;
+      border-right: var(--thickness) solid var(--color);
+      height: auto;
+      align-self: stretch;
+    }
+  }
+</style>
