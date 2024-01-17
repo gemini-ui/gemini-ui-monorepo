@@ -1,15 +1,15 @@
 ---
-import { classMerge } from "@gemini-ui-astro/core";
+import { classMerge, OptionalSizeProp } from "@gemini-ui-astro/core";
 
 export interface DividerProps {
   class?: string;
   thickness?: string;
   orientation?: "horizontal" | "vertical";
   color?: string;
-  mt?: string;
-  mb?: string;
-  ml?: string;
-  mr?: string;
+  mt?: OptionalSizeProp;
+  mb?: OptionalSizeProp;
+  ml?: OptionalSizeProp;
+  mr?: OptionalSizeProp;
 }
 
 const {
