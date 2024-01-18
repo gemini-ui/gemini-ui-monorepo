@@ -4,7 +4,7 @@ import { classMerge } from "@gemini-ui-astro/core";
 interface Props {
   severity: "success" | "warning" | "error" | "info";
   className?: string;
-  pulse?: "none | light | infinite";
+  pulse?: "none" | "light" | "infinite";
 }
 
 const { severity, className, pulse } = Astro.props;
