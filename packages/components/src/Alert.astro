@@ -1,13 +1,19 @@
 ---
 import { classMerge } from "@gemini-ui-astro/core";
 
-interface Props {
-  severity: "success" | "warning" | "error" | "info";
-  className?: string;
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  dynamicGlow?: boolean;
   pulse?: "none" | "light" | "infinite";
+  severity: "success" | "warning" | "error" | "info";
 }
 
-const { severity, className, pulse } = Astro.props;
+const {
+  class: className,
+  dynamicGlow,
+  pulse,
+  severity,
+  ...props
+} = Astro.props;
 
 const getAnimationCount = {
   none: "0",
@@ -16,9 +22,17 @@ const getAnimationCount = {
 };
 ---
 
-<section class={classMerge("gx-alert", className, severity)}>
-  <div class={classMerge("blob", severity)}></div>
-  <div class="message">
+<section
+  {...props}
+  class={classMerge(
+    "gx-alert",
+    dynamicGlow && "gx-dynamic-glow",
+    className,
+    `gx-alert-${severity}`,
+  )}
+>
+  <div class={classMerge("gx-alert-pulse", `gx-alert-${severity}`)}></div>
+  <div class="gx-alert-message">
     <slot />
   </div>
 </section>
@@ -32,47 +46,70 @@ const getAnimationCount = {
   }}
 >
   .gx-alert {
+    --gx-mouse-angle: 45deg;
+    --gx-mouse-distance: 0;
+
+    --percent: calc(75% / (1 + var(--gx-mouse-distance) / 10));
+    --shadow-size: calc(
+      max(8px, min(24px, calc(1000px / (1 + var(--gx-mouse-distance)))))
+    );
+
     display: flex;
     align-items: center;
     width: 100%;
-    background: #fff;
-    border: 1px solid;
-    border-color: rgba(52, 172, 224, 1);
+    background: #23262d;
     border-radius: 12px;
+    color: white;
+    position: relative;
+    margin: 0.5px;
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 0px 6px 0px,
+      rgba(138, 101, 240, 0.125) 0px 0px var(--shadow-size) 4px;
 
-    &.success {
-      border-color: rgba(51, 217, 178, 1);
+    &.gx-alert-success {
+      --border-color: rgba(51, 217, 178, 0.6);
     }
 
-    &.warning {
-      border-color: rgba(255, 121, 63, 1);
+    &.gx-alert-warning {
+      --border-color: rgba(255, 121, 63, 0.6);
     }
 
-    &.error {
-      border-color: rgba(255, 82, 82, 1);
+    &.gx-alert-error {
+      --border-color: rgba(255, 82, 82, 0.6);
     }
 
-    &.info {
-      border-color: rgba(52, 172, 224, 1);
+    &.gx-alert-info {
+      --border-color: rgba(52, 172, 224, 0.6);
     }
-  }
 
-  .message {
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.87);
-  }
+    &:before {
+      content: "";
+      margin: -0.5px;
+      border-radius: inherit;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        var(--gx-mouse-angle),
+        var(--border-color),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.2) var(--percent)
+      );
+    }
 
-  .blob {
-    background: rgba(52, 172, 224, 1);
-    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
-    animation: pulse-blue 2s var(--gx-pulse-duration);
-    border-radius: 50%;
-    margin: 10px;
-    height: 20px;
-    width: 20px;
-    transform: scale(1);
+    .gx-alert-message {
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .gx-alert-pulse {
+      border-radius: 50%;
+      margin: 10px;
+      height: 20px;
+      width: 20px;
+      transform: scale(1);
+    }
   }
 
   @keyframes pulse {
@@ -92,7 +129,7 @@ const getAnimationCount = {
     }
   }
 
-  .blob.success {
+  .gx-alert-pulse.gx-alert-success {
     background: rgba(51, 217, 178, 1);
     box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
     animation: pulse-green 2s var(--gx-pulse-duration);
@@ -115,7 +152,7 @@ const getAnimationCount = {
     }
   }
 
-  .blob.warning {
+  .gx-alert-pulse.gx-alert-warning {
     background: rgba(255, 121, 63, 1);
     box-shadow: 0 0 0 0 rgba(255, 121, 63, 1);
     animation: pulse-orange 2s var(--gx-pulse-duration);
@@ -138,7 +175,7 @@ const getAnimationCount = {
     }
   }
 
-  .blob.error {
+  .gx-alert-pulse.gx-alert-error {
     background: rgba(255, 82, 82, 1);
     box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
     animation: pulse-red 2s var(--gx-pulse-duration);
@@ -161,7 +198,7 @@ const getAnimationCount = {
     }
   }
 
-  .blob.info {
+  .gx-alert-pulse.gx-alert-info {
     background: rgba(52, 172, 224, 1);
     box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
     animation: pulse-blue 2s var(--gx-pulse-duration);
