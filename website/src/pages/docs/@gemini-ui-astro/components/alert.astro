@@ -1,0 +1,26 @@
+---
+import { Alert as GeminiAlert, Grid } from "@gemini-ui-astro/components";
+import Layout from "../../../../layouts/Layout.astro";
+---
+
+<Layout title="Gemini UI - Divider">
+  <Grid container gap="16px">
+    <Grid xs={12}>
+      <GeminiAlert severity="success">This is a success alert</GeminiAlert>
+    </Grid>
+    <Grid xs={12}>
+      <GeminiAlert severity="warning">This is a warning alert</GeminiAlert>
+    </Grid>
+    <Grid xs={12}>
+      <GeminiAlert severity="error">This is an error alert</GeminiAlert>
+    </Grid>
+    <Grid xs={12}>
+      <GeminiAlert severity="info">This is an info alert</GeminiAlert>
+    </Grid>
+    <Grid xs={12}>
+      <GeminiAlert pulse="infinite" severity="error">
+        This is an error alert with infinite pulse
+      </GeminiAlert>
+    </Grid>
+  </Grid>
+</Layout>

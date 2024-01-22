@@ -1,0 +1,186 @@
+---
+import { classMerge } from "@gemini-ui-astro/core";
+
+interface Props {
+  severity: "success" | "warning" | "error" | "info";
+  className?: string;
+  pulse?: "none" | "light" | "infinite";
+}
+
+const { severity, className, pulse } = Astro.props;
+
+const getAnimationCount = {
+  none: "0",
+  light: "3",
+  infinite: "infinite",
+};
+---
+
+<section class={classMerge("gx-alert", className, severity)}>
+  <div class={classMerge("blob", severity)}></div>
+  <div class="message">
+    <slot />
+  </div>
+</section>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-pulse-duration": pulse
+      ? getAnimationCount[pulse]
+      : getAnimationCount.light,
+  }}
+>
+  .gx-alert {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    border: 1px solid;
+    border-color: rgba(52, 172, 224, 1);
+    border-radius: 12px;
+
+    &.success {
+      border-color: rgba(51, 217, 178, 1);
+    }
+
+    &.warning {
+      border-color: rgba(255, 121, 63, 1);
+    }
+
+    &.error {
+      border-color: rgba(255, 82, 82, 1);
+    }
+
+    &.info {
+      border-color: rgba(52, 172, 224, 1);
+    }
+  }
+
+  .message {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .blob {
+    background: rgba(52, 172, 224, 1);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+    animation: pulse-blue 2s var(--gx-pulse-duration);
+    border-radius: 50%;
+    margin: 10px;
+    height: 20px;
+    width: 20px;
+    transform: scale(1);
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }
+
+  .blob.success {
+    background: rgba(51, 217, 178, 1);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
+    animation: pulse-green 2s var(--gx-pulse-duration);
+  }
+
+  @keyframes pulse-green {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+    }
+  }
+
+  .blob.warning {
+    background: rgba(255, 121, 63, 1);
+    box-shadow: 0 0 0 0 rgba(255, 121, 63, 1);
+    animation: pulse-orange 2s var(--gx-pulse-duration);
+  }
+
+  @keyframes pulse-orange {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 121, 63, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+    }
+  }
+
+  .blob.error {
+    background: rgba(255, 82, 82, 1);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+    animation: pulse-red 2s var(--gx-pulse-duration);
+  }
+
+  @keyframes pulse-red {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+  }
+
+  .blob.info {
+    background: rgba(52, 172, 224, 1);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+    animation: pulse-blue 2s var(--gx-pulse-duration);
+  }
+
+  @keyframes pulse-blue {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+    }
+  }
+</style>
