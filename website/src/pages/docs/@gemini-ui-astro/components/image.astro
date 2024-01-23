@@ -8,7 +8,7 @@ import Layout from "../../../../layouts/Layout.astro";
     <div class="column center">
       <GeminiImage
         class="neom-1"
-        src="/neom.webp"
+        src="/neom-400x300.webp"
         alt="Sandstone plateau, Hisma Desert - NEOM, Saudi Arabia"
         width="400"
         dynamicGlow
@@ -50,11 +50,13 @@ import Layout from "../../../../layouts/Layout.astro";
     align-items: center;
   }
   .neom-1 {
+    aspect-ratio: 4/3;
     @media screen and (max-width: 448px) {
       width: calc(100vw - 48px);
     }
   }
   .neom-2 {
+    aspect-ratio: 3/2;
     @media screen and (max-width: 648px) {
       width: calc(100vw - 48px);
     }
