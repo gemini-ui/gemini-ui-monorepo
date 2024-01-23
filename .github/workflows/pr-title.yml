@@ -19,8 +19,9 @@ jobs:
         with:
           message: |
             ## ❌ PR Title Check Failed
-            Please follow the PR title format: <type>(<scope(s)>): <description>
-            <type> can be one of the following:
+            Please follow the PR title format: `<type>(<scope(s)>): <description>`
+
+            `<type>` can be one of the following:
             - feat
             - fix
             - docs
@@ -30,15 +31,17 @@ jobs:
             - test
             - chore
             - revert
-            <scope> can be one of the following (or a comma separated list of them):
+
+            `<scope>` can be one of the following (or a comma separated list of them):
             - website
             - core
             - components
             - components-blog
             - styles
             - repo
-            <description> should be a short description of the changes
-            For example: feat(website): add new page
+
+            `<description>` should be a short description of the changes
+            For example: `feat(website): add new page`
       - uses: mshick/add-pr-comment@v2
         if: ${{ success() }}
         with:
