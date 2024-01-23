@@ -1,0 +1,73 @@
+---
+import { classMerge } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.ImgHTMLAttributes {
+  caption?: boolean;
+  dynamicGlow?: boolean;
+}
+
+const { caption, class: className, dynamicGlow, ...props } = Astro.props;
+---
+
+{
+  caption && (
+    <figure class="gx-figure">
+      <img
+        {...props}
+        class={classMerge(
+          "gx-image",
+          dynamicGlow && "gx-dynamic-glow",
+          className,
+        )}
+      />
+      <figcaption class="gx-figure-caption">
+        <slot />
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  !caption && (
+    <img
+      {...props}
+      class={classMerge(
+        "gx-image",
+        dynamicGlow && "gx-dynamic-glow",
+        className,
+      )}
+    />
+  )
+}
+
+<style lang="scss">
+  .gx-figure {
+    margin: unset;
+    max-width: min-content;
+
+    .gx-figure-caption {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      color: #a0aec0;
+      text-align: center;
+    }
+  }
+
+  .gx-image {
+    --gx-mouse-distance: 0;
+
+    --shadow-size: calc(
+      max(8px, min(24px, calc(1000px / (1 + var(--gx-mouse-distance)))))
+    );
+
+    position: relative;
+    margin: 0.5px;
+    background-color: #23262d;
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 0px 6px 0px,
+      rgba(138, 101, 240, 0.075) 0px 0px var(--shadow-size) 6px;
+    border-radius: 4px;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+  }
+</style>
