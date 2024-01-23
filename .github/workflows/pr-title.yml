@@ -47,4 +47,4 @@ jobs:
         with:
           message: |
             ## ✅ PR Title Check Passed
-            The PR title
+            The PR title format is correct! ☺️
