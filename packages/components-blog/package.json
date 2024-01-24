@@ -1,6 +1,6 @@
 {
   "name": "@gemini-ui-astro/components-blog",
-  "version": "0.0.1",
+  "version": "develop",
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -18,6 +18,6 @@
   },
   "peerDependencies": {
     "astro": "^4.0.0",
-    "@gemini-ui-astro/components": "^0.0.1"
+    "@gemini-ui-astro/components": "*"
   }
 }
