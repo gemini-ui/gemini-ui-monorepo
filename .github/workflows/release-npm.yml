@@ -1,3 +1,5 @@
+name: Release NPM
+
 on:
   push:
     tags:
