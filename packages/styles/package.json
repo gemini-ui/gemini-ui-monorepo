@@ -1,6 +1,6 @@
 {
   "name": "@gemini-ui-astro/styles",
-  "version": "0.0.1",
+  "version": "develop",
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -17,6 +17,6 @@
     "astro": "^4.1.2"
   },
   "peerDependencies": {
-    "astro": "^3.0.0"
+    "astro": "^4.0.0"
   }
 }
