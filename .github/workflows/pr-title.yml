@@ -1,0 +1,50 @@
+name: Check PR Title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  pr-title:
+    name: Check PR Title
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: Slashgear/action-check-pr-title@v4.3.0
+        with:
+          regexp: "^([a-z]+|BREAKING CHANGE)\\((website|core|components|components-blog|styles|repo)(,(website|core|components|components-blog|styles|repo))?\\): .*$"
+      - uses: mshick/add-pr-comment@v2
+        if: ${{ failure() }}
+        with:
+          message: |
+            ## ❌ PR Title Check Failed
+            Please follow the PR title format: `<type>(<scope(s)>): <description>`
+
+            `<type>` can be one of the following:
+            - feat
+            - fix
+            - docs
+            - style
+            - refactor
+            - perf
+            - test
+            - chore
+            - revert
+
+            `<scope>` can be one of the following (or a comma separated list of them):
+            - website
+            - core
+            - components
+            - components-blog
+            - styles
+            - repo
+
+            `<description>` should be a short description of the changes
+            For example: `feat(website): add new page`
+      - uses: mshick/add-pr-comment@v2
+        if: ${{ success() }}
+        with:
+          message: |
+            ## ✅ PR Title Check Passed
+            The PR title format is correct! ☺️

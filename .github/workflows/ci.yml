@@ -6,9 +6,24 @@ on:
     branches: [main]
 
 jobs:
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+      - name: "Dependency Review"
+        uses: actions/dependency-review-action@v4
+        with:
+          comment-summary-in-pr: always
   prettier:
     name: Prettier Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
