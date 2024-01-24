@@ -1,0 +1,46 @@
+name: Workflow Partial - Release NPM
+
+on:
+  workflow_call:
+    inputs:
+      package_path:
+        description: Path to the package to release (e.g. packages/core)
+        required: true
+        type: string
+
+jobs:
+  release-npm:
+    name: Release to NPM
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          always-auth: true
+          node-version-file: .nvmrc
+      - name: Node Modules Cache
+        id: node_modules_cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node_modules-
+      - name: Install
+        if: ${{ steps.node_modules_cache.outputs.cache-hit != 'true' }}
+        run: npm ci
+      - name: Get Package Version
+        run: |
+          echo "PACKAGE_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
+      - name: Set Package Version
+        working-directory: ${{ github.event.inputs.package_path }}
+        run: npm version $PACKAGE_VERSION
+      - name: Publish Package
+        working-directory: packages/core
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        run: npm publish --access public
