@@ -1,5 +1,15 @@
 <p align="center">
-  <a href="https://gemini-ui.dev/" rel="noopener" target="_blank"><img style="position: relative; top: 50px; z-index: -1;" width="128" height="128" src="./assets/logo.svg" alt="Gemini UI Logo"></a>
+  <a
+    href="https://gemini-ui.dev/"
+    rel="noopener"
+    target="_blank"
+  >
+    <img
+      width="148" height="148"
+      src="./assets/logo.svg"
+      alt="Gemini UI Logo"
+    >
+  </a>
 </p>
 
 <h1 align="center">Gemini UI</h1>
