@@ -27,7 +27,7 @@ jobs:
     needs: [release-core]
     uses: ./.github/workflows/workflow-partial-release-npm.yml
     with:
-      package_path: packages/styles
+      package_path: packages/components
     secrets: inherit
   release-components-blog:
     name: Release @gemini-ui-astro/components-blog
