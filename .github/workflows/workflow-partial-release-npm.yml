@@ -37,8 +37,11 @@ jobs:
         run: |
           echo "PACKAGE_VERSION=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
       - name: Set Package Version
-        working-directory: ${{ github.event.inputs.package_path }}
-        run: npm version $PACKAGE_VERSION
+        env:
+          PACKAGE_PATH: ${{ github.event.inputs.package_path }}
+        run: |
+          cd $PACKAGE_PATH
+          npm version $PACKAGE_VERSION
       - name: Publish Package
         working-directory: packages/core
         env:
