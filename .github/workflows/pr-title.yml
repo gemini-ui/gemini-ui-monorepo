@@ -19,7 +19,7 @@ jobs:
         with:
           message: |
             ## ❌ PR Title Check Failed
-            Please follow the PR title format: `<type>(<scope(s)>): <description>`
+            PR title should adhere to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) format: `<type>(<scope>): <description>`
 
             `<type>` can be one of the following:
             - feat
@@ -42,6 +42,8 @@ jobs:
 
             `<description>` should be a short description of the changes
             For example: `feat(website): add new page`
+
+            For breaking changes, add a `!` after the type/scope, for example: `feat(website)!: add new page`.
       - uses: mshick/add-pr-comment@v2
         if: ${{ success() }}
         with:
