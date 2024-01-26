@@ -9,5 +9,3 @@ export { default as Divider } from "./src/Divider.astro";
 export { default as DynamicGlow } from "./src/DynamicGlow.astro";
 export { default as Grid } from "./src/Grid.astro";
 export { default as Image } from "./src/Image.astro";
-
-export * from "./src/icons";
