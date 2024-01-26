@@ -1,0 +1,42 @@
+---
+import {
+  CloudSquareRegular,
+  FavouriteBookRegular,
+  ScaleFrameEnlargeRegular,
+  YogaRegular,
+} from "@gemini-ui-astro/components";
+import Layout from "../../../../layouts/Layout.astro";
+---
+
+<Layout title="Gemini UI - GeminiGrid">
+  <main>
+    <div class="column center">
+      <CloudSquareRegular size="16px" />
+      <ScaleFrameEnlargeRegular size="32px" />
+      <FavouriteBookRegular size="64px" />
+      <YogaRegular size="128px" />
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
