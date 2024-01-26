@@ -12,7 +12,10 @@
   "keywords": [
     "astro-component"
   ],
-  "scripts": {},
+  "scripts": {
+    "postinstall": "npm run build:icons",
+    "build:icons": "node ./scripts/buildIcons.mjs"
+  },
   "devDependencies": {
     "astro": "^4.1.2"
   },

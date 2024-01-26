@@ -1,13 +1,13 @@
 // Do not write code directly here, instead use the `src` folder!
 // Then, use this file to export everything you want your user to access.
 
-import Alert from "./src/Alert.astro";
-import AnchorButton from "./src/AnchorButton.astro";
-import Button from "./src/Button.astro";
-import Card from "./src/Card.astro";
-import Divider from "./src/Divider.astro";
-import DynamicGlow from "./src/DynamicGlow.astro";
-import Grid from "./src/Grid.astro";
-import Image from "./src/Image.astro";
+export { default as Alert } from "./src/Alert.astro";
+export { default as AnchorButton } from "./src/AnchorButton.astro";
+export { default as Button } from "./src/Button.astro";
+export { default as Card } from "./src/Card.astro";
+export { default as Divider } from "./src/Divider.astro";
+export { default as DynamicGlow } from "./src/DynamicGlow.astro";
+export { default as Grid } from "./src/Grid.astro";
+export { default as Image } from "./src/Image.astro";
 
-export { Alert, AnchorButton, Button, Card, Divider, DynamicGlow, Grid, Image };
+export * from "./src/icons";
