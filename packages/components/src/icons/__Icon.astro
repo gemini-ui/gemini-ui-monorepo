@@ -11,15 +11,13 @@ const { class: className, size, ...rest } = Astro.props;
 <i class="gx-icon gx-icon-{{ icon_name }}"></i>
 
 <style
-  set:html={`.gx-icon-{{ icon_name }}::before{mask-image:url('data:image/svg+xml;charset=utf-8,{{ icon_svg }}');}`}
-></style>
-
-<style
   lang="scss"
   define:vars={{
     "gx-size": size ? getSizeProp(size) : "inherit",
   }}
 >
+  .gx-icon-{{ icon_name }}::before{mask-image:url('data:image/svg+xml;charset=utf-8,{{ icon_svg }}');}
+
   .gx-icon {
     display: inline-block;
     font-size: var(--gx-size);

@@ -9,3 +9,5 @@ CHANGELOG.md
 /packages/components/src/icons/solid
 /packages/components/src/icons/index.ts
 
+# This file includes template placeholders which break prettier
+/packages/components/src/icons/__Icon.astro
