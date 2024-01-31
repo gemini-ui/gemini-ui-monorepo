@@ -19,6 +19,6 @@
   "peerDependencies": {
     "astro": "^4.0.0",
     "@gemini-ui-astro/core": "*",
-    "sass": "^1.69.7"
+    "sass": "*"
   }
 }
