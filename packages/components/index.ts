@@ -9,5 +9,16 @@ import Divider from "./src/Divider.astro";
 import DynamicGlow from "./src/DynamicGlow.astro";
 import Grid from "./src/Grid.astro";
 import Image from "./src/Image.astro";
+import Typography from "./src/Typography.astro";
 
-export { Alert, AnchorButton, Button, Card, Divider, DynamicGlow, Grid, Image };
+export {
+  Alert,
+  AnchorButton,
+  Button,
+  Card,
+  Divider,
+  DynamicGlow,
+  Grid,
+  Image,
+  Typography,
+};
