@@ -13,19 +13,7 @@ interface Props {
     | "body2"
     | "caption"
     | "overline";
-  override?:
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "subtitle1"
-    | "subtitle2"
-    | "body1"
-    | "body2"
-    | "caption"
-    | "overline";
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   class?: string;
 }
 
@@ -44,72 +32,75 @@ const elementMap = {
   overline: "p",
 };
 
-const { class: className, variant, override, ...props } = Astro.props;
+const { class: className, variant, as, ...props } = Astro.props as Props;
 
-const Element = override ? elementMap[override] : elementMap[variant];
+const Element = as ?? elementMap[variant];
 ---
 
-<Element {...props} class:list={["gx-typography", variant, className]}>
+<Element
+  {...props}
+  class:list={["gx-typography", `gx-typography-${variant}`, className]}
+>
   <slot />
 </Element>
 
 <style lang="scss">
   .gx-typography {
-    &.h1 {
+    &.gx-typography-h1 {
       font-size: 4rem;
       font-weight: 300;
       margin: 0;
     }
-    &.h2 {
+    &.gx-typography-h2 {
       font-size: 3rem;
       font-weight: 300;
       margin: 0;
     }
-    &.h3 {
+    &.gx-typography-h3 {
       font-size: 2.25rem;
       font-weight: 300;
       margin: 0;
     }
-    &.h4 {
+    &.gx-typography-h4 {
       font-size: 1.75rem;
       font-weight: 300;
       margin: 0;
     }
-    &.h5 {
+    &.gx-typography-h5 {
       font-size: 1.5rem;
       font-weight: 300;
       margin: 0;
     }
-    &.h6 {
+    &.gx-typography-h6 {
       font-size: 1rem;
       font-weight: 300;
       margin: 0;
     }
-    &.body1 {
+    &.gx-typography-body1 {
       font-size: 1rem;
     }
 
-    &.body2 {
+    &.gx-typography-body2 {
       font-size: 0.875rem;
     }
 
-    &.caption {
+    &.gx-typography-caption {
       font-size: 0.75rem;
     }
 
-    &.subtitle1 {
+    &.gx-typography-subtitle1 {
       font-size: 1rem;
       font-weight: 500;
       margin: 0;
     }
 
-    &.subtitle2 {
+    &.gx-typography-subtitle2 {
       font-size: 0.875rem;
       font-weight: 700;
       margin: 0;
     }
 
-    &.overline {
+    &.gx-typography-overline {
       text-transform: uppercase;
       letter-spacing: 3px;
       font-size: 0.75rem;
