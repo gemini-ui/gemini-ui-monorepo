@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.3...gemini-ui-v0.0.4) (2024-02-04)
+
+
+### Features
+
+* **components:** Typography component ([#43](https://github.com/gemini-ui/gemini-ui-monorepo/issues/43)) ([fda85f3](https://github.com/gemini-ui/gemini-ui-monorepo/commit/fda85f374aa2713e996c79066ec04aad69fcfd44))
+
 ## [0.0.3](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.2...gemini-ui-v0.0.3) (2024-01-24)
 
 
