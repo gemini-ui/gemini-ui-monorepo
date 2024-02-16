@@ -8,6 +8,14 @@ GREEN="\033[0;32m"
 NC="\033[0m" # No Color
 
 message="$(cat $1)"
+
+mergeCommitPattern="^Merge branch '.+'.*$"
+if [[ $message =~ $mergeCommitPattern ]];
+then
+  echo "${GREEN}✔${NC} Validating commit message..."
+  exit 0
+fi
+
 requiredPattern="^[a-z]+\((website|core|components|components-blog|styles|repo)\)!?: .*$"
 if ! [[ $message =~ $requiredPattern ]];
 then

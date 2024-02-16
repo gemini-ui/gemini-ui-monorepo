@@ -1,0 +1,72 @@
+---
+import { Alert } from "@gemini-ui-astro/components";
+import CloudSquareRegular from "@gemini-ui-astro/components/icons/regular/CloudSquareRegular";
+import ScaleFrameEnlargeRegular from "@gemini-ui-astro/components/icons/regular/ScaleFrameEnlargeRegular";
+import FavouriteBookRegular from "@gemini-ui-astro/components/icons/regular/FavouriteBookRegular";
+import YogaRegular from "@gemini-ui-astro/components/icons/regular/YogaRegular";
+import Layout from "../../../../layouts/Layout.astro";
+---
+
+<Layout title="Gemini UI - GeminiGrid">
+  <main>
+    <div class="column center">
+      <Alert dynamicGlow severity="info">
+        Icons are provided by <a href="https://iconoir.com/" target="_blank">
+          Iconoir</a
+        >
+      </Alert>
+      <Alert dynamicGlow severity="warning">
+        Icons can be imported from <code>@gemini-ui-astro/components/icons</code
+        > but this is not recommended as it will cause all icons to be imported,
+        slowing donw your build. Instead, you should import the icons you need from:
+        <ul>
+          <li>
+            <code>@gemini-ui-astro/components/icons/regular/*</code>
+          </li>
+          <li>
+            <code>@gemini-ui-astro/components/icons/solid/*</code>
+          </li>
+        </ul>
+      </Alert>
+      <br />
+      <CloudSquareRegular size="16px" />
+      <ScaleFrameEnlargeRegular size="32px" />
+      <FavouriteBookRegular size="64px" />
+      <YogaRegular size="128px" />
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  code {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+  }
+  li {
+    margin-top: 0.5rem;
+  }
+</style>
