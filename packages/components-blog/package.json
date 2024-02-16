@@ -18,6 +18,7 @@
   },
   "peerDependencies": {
     "astro": "^4.0.0",
-    "@gemini-ui-astro/components": "*"
+    "@gemini-ui-astro/components": "*",
+    "sass": "*"
   }
 }
