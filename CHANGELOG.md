@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.4...gemini-ui-v0.0.5) (2024-02-16)
+
+
+### Features
+
+* **components:** Add icon components ([#42](https://github.com/gemini-ui/gemini-ui-monorepo/issues/42)) ([efeee74](https://github.com/gemini-ui/gemini-ui-monorepo/commit/efeee74f320509400a884945375b9740d7dad757))
+
 ## [0.0.4](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.3...gemini-ui-v0.0.4) (2024-02-04)
 
 
