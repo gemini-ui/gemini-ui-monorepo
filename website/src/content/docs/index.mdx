@@ -1,0 +1,47 @@
+---
+title: Welcome to Gemini UI
+description: An open source component library for Astro. Build beautiful stellar user interfaces with minimal effort.
+template: splash
+hero:
+  tagline: An open source component library for Astro. Build beautiful stellar user interfaces with minimal effort.
+  image:
+    file: ../../assets/gemini-logo.png
+  actions:
+    - text: Get Started
+      link: /guides/example/
+      icon: right-arrow
+      variant: primary
+    - text: View on Github
+      link: https://github.com/gemini-ui/gemini-ui-monorepo
+      icon: external
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+<CardGrid stagger>
+  <Card title="Accelerate Your Frontend Development" icon="pencil">
+    Jumpstart your site creation with our dedicated Astro components, designed
+    to accelerate the development process and streamline your workflow.
+    Experience the ease of building Astro-powered sites faster than ever,
+    allowing you to focus on crafting exceptional user experiences without the
+    hassle of starting from scratch.
+  </Card>
+  <Card title="Blog-Oriented Components" icon="add-document">
+    Elevate your blog with specialized components tailored for content-rich
+    sites. Gemini UI offers a variety of blog-specific features, enabling you to
+    create dynamic, engaging, and visually appealing blogs with ease. Whether
+    you're building a personal blog or a large-scale content platform, our tools
+    are engineered to meet your needs.
+  </Card>
+  <Card title="Seamless Astro Integration" icon="open-book">
+    Maximize the potential of your Astro projects with Gemini UI seamless
+    integration. Built specifically for Astro, our components enhance its
+    natural strengths, ensuring you can leverage the full power of Astro
+  </Card>
+  <Card title="Optimized for Performance" icon="setting">
+    Experience blazing-fast website performance with our meticulously optimized
+    components. Designed with efficiency in mind, Gemini UI ensures that your
+    Astro-powered sites are not only quick to load but also smooth to navigate,
+    providing an optimal user experience and boosting your site's SEO ranking.
+  </Card>
+</CardGrid>
