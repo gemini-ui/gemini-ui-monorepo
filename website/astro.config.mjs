@@ -1,10 +1,12 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import liveCode from "astro-live-code";
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
+    liveCode(),
     starlight({
+      customCss: ["./src/styles/global.css"],
       title: "Gemini UI Docs",
       social: {
         github: "https://github.com/gemini-ui/gemini-ui-monorepo",
@@ -12,14 +14,11 @@ export default defineConfig({
       sidebar: [
         {
           label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Typography", link: "/guides/typography" },
-          ],
+          autogenerate: { directory: "guides" },
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Components",
+          autogenerate: { directory: "components" },
         },
       ],
     }),

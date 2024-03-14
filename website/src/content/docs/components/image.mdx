@@ -1,0 +1,71 @@
+---
+title: Image
+description: Used to display images.
+---
+
+The `Image` component is used to display images. It can be used to display static images and have a caption .
+
+```astro live
+---
+import { Image } from "@gemini-ui-astro/components";
+---
+
+<Image
+  class="neom-1"
+  src="/neom-400x300.webp"
+  alt="Sandstone plateau, Hisma Desert - NEOM, Saudi Arabia"
+  width="400"
+  dynamicGlow
+/>
+```
+
+## Usage
+
+### Caption
+
+To add a caption to the image, toggle the `caption` prop. Then add a caption as a child of the `Image` component.
+
+```astro live
+---
+import { Image } from "@gemini-ui-astro/components";
+---
+
+<Image
+  class="neom-1"
+  src="/neom-400x300.webp"
+  alt="Sandstone plateau, Hisma Desert - NEOM, Saudi Arabia"
+  width="400"
+  caption
+  dynamicGlow
+>
+  Figure 2: The vibrant waters of NEOM, are home to some of the most picturesque
+  and pristine islands in the Red Sea | Islands of NEOM - NEOM, Saudi Arabia.
+</Image>
+```
+
+## Props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dynamicGlow</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>A Gemini UI unique effect</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Override or extend the styles applied to the component.</td>
+    </tr>
+  </tbody>
+</table>

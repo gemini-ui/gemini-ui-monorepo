@@ -1,0 +1,25 @@
+---
+title: Getting Started
+description: A guide to setting up Gemini UI
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+To install Gemini UI run the following command
+
+<Tabs>
+  <TabItem label="npm">``` npm i @gemini-ui-astro/components ```</TabItem>
+  <TabItem label="Yarn">``` yarn add @gemini-ui-astro/components ```</TabItem>
+</Tabs>
+
+## Basic Usage
+
+After installation, you can import any Gemini UI component and start playing around. For example, try changing the `dynamicGlow` on the Card to see how the style changes:
+
+```astro live
+---
+import { Card } from "@gemini-ui-astro/components";
+---
+
+<Card dynamicGlow>This is a card with dynamic glow</Card>
+```
