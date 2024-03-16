@@ -10,6 +10,7 @@ export default defineConfig({
       title: "Gemini UI Docs",
       social: {
         github: "https://github.com/gemini-ui/gemini-ui-monorepo",
+        "x.com": "https://twitter.com/GeminiUiDotDev",
       },
       sidebar: [
         {

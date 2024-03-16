@@ -11,3 +11,7 @@
   :is(img, picture, video, canvas, svg, iframe):not(:where(.not-content *)) {
   max-width: inherit;
 }
+
+.grid-code-example .live-code-layout .example-container {
+  display: block;
+}
