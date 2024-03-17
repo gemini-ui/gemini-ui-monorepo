@@ -1,0 +1,81 @@
+---
+title: Divider
+description: Used to separate content in a list or between elements.
+---
+
+The `Divider` component is used to separate content in a list or between elements. It can be a horizontal line or a vertical line.
+
+```astro live
+---
+import { Divider } from "@gemini-ui-astro/components";
+---
+
+Hello there!
+<Divider />
+General Kenobi!
+```
+
+## Props
+
+The `Button` component has the following props.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>color</td>
+      <td>string</td>
+      <td>1px</td>
+      <td>Specifies the color of the line</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Override or extend the styles applied to the component.</td>
+    </tr>
+    <tr>
+      <td>mt</td>
+      <td>SizeProp | undefined | null | false</td>
+      <td>0</td>
+      <td>Defines a top margin</td>
+    </tr>
+    <tr>
+      <td>mb</td>
+      <td>SizeProp | undefined | null | false</td>
+      <td>0</td>
+      <td>Defines a bottom margin</td>
+    </tr>
+    <tr>
+      <td>ml</td>
+      <td>SizeProp | undefined | null | false</td>
+      <td>0</td>
+      <td>Defines a left margin</td>
+    </tr>
+    <tr>
+      <td>mr</td>
+      <td>SizeProp | undefined | null | false</td>
+      <td>0</td>
+      <td>Defines a right margin</td>
+    </tr>
+    <tr>
+      <td>orientation</td>
+      <td>"horizontal" | "vertical"</td>
+      <td>horizontal</td>
+      <td>Defines which way the divider will be placed</td>
+    </tr>
+    <tr>
+      <td>thickness</td>
+      <td>string</td>
+      <td>1px</td>
+      <td>Defines how thick the line will be</td>
+    </tr>
+  </tbody>
+</table>

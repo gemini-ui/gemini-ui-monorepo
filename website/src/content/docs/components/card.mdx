@@ -1,0 +1,68 @@
+---
+title: Card
+description: Cards contain content and actions about a single subject.
+---
+
+Cards are surfaces that display content and actions on a single topic. They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.
+
+## Usage
+
+```astro live
+---
+import { Card } from "@gemini-ui-astro/components";
+import { Button } from "@gemini-ui-astro/components";
+---
+
+<Card class="example-card" dynamicGlow style={{ marginBottom: "32px" }}>
+  <h2>Card Title 1</h2>
+  <p>
+    Officia non aliqua eu sunt nisi tempor fugiat magna. Cillum sint anim magna
+    quis occaecat quis ea consectetur. Veniam nisi dolore proident aute minim
+    consequat cillum esse laborum do nostrud esse sint. Elit nisi non cupidatat
+    voluptate laboris qui. Pariatur aute do ullamco id nulla minim. Cillum
+    proident quis adipisicing deserunt veniam cillum officia ut labore fugiat
+    culpa veniam. Elit deserunt veniam culpa sit minim deserunt aliqua
+    adipisicing duis.
+  </p>
+  <Button>Some Button</Button>
+</Card>
+<Card class="example-card" dynamicGlow>
+  <h2>Card Title 2</h2>
+  <p>
+    Aute consectetur nostrud Lorem aliquip officia deserunt nulla. Aliquip est
+    deserunt ex anim. Voluptate mollit minim incididunt consequat anim officia
+    commodo mollit nisi culpa esse duis ut. Pariatur ut incididunt ipsum
+    consectetur reprehenderit deserunt et do duis ut aliquip laboris dolor.
+  </p>
+  <Button>Some Button</Button>
+</Card>
+```
+
+## Props
+
+The `Card` component has the following props.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dynamicGlow</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>A Gemini UI unique effect</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Override or extend the styles applied to the component.</td>
+    </tr>
+  </tbody>
+</table>

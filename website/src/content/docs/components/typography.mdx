@@ -1,0 +1,85 @@
+---
+title: Typography
+description: Use typography to present your copy as clearly as possible
+---
+
+Use typography to present your copy as clearly as possible to the user taking into account accessibility.
+
+## Component
+
+### Basic Usage
+
+```astro live
+---
+import { Typography } from "@gemini-ui-astro/components";
+---
+
+<Typography variant="h1">This is an H1 heading</Typography>
+<Typography variant="h2">This is an H2 heading</Typography>
+<Typography variant="h3">This is an H3 heading</Typography>
+<Typography variant="h4">This is an H4 heading</Typography>
+<Typography variant="h5">This is an H5 heading</Typography>
+<Typography variant="h6">This is an H6 heading</Typography>
+<Typography variant="subtitle1">This is a subtitle1</Typography>
+<Typography variant="subtitle2">This is a subtitle2</Typography>
+<Typography variant="body1">This is an body1 paragraph</Typography>
+<Typography variant="body2">This is an body2 paragraph</Typography>
+<Typography variant="caption">This is a caption paragraph</Typography>
+<Typography variant="overline">This is an overline paragraph</Typography>
+```
+
+### Changing the semantic element
+
+It is important to maintain semantics in your HTML, search engines rank sites based on an ordered heirachy. However, there are times when it may not appear visually appealing to do this.
+
+You may need to take the styling of one element and use it on another. You can do this by using the `as` prop.
+
+```astro live
+---
+import { Typography } from "@gemini-ui-astro/components";
+---
+
+<Typography variant="h3" as="h2">
+  This is an H2 heading with an H3 override
+</Typography>
+```
+
+This creates an `h2` element with the styles of an `h3` element.
+
+## API
+
+The `Typography` component has the following props.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>variant</td>
+      <td>
+        "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" |
+        "body1" | "body2" | "caption" | "overline";
+      </td>
+      <td>default</td>
+      <td>Defines which element is used</td>
+    </tr>
+    <tr>
+      <td>as</td>
+      <td>"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span"</td>
+      <td>-</td>
+      <td>Defines which elements styling is used as an override</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Override or extend the styles applied to the component.</td>
+    </tr>
+  </tbody>
+</table>

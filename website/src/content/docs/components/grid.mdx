@@ -1,0 +1,199 @@
+---
+title: Grid
+description: The Grid component is a layout component that allows you to create a responsive grid layout.
+---
+
+The Grid component is a layout component that allows you to create a responsive grid layout. It uses a flexbox based layout system to create a grid of columns and rows.
+
+## Component
+
+### Basic Usage
+
+Use the Grid component to create a container and nested items. Here's an example of a basic grid layout:
+
+<div class="grid-code-example">
+```astro live
+---
+import { Grid } from "@gemini-ui-astro/components";
+---
+
+<Grid container>
+  <Grid xs={12} sm={6} md={3}>Item 1</Grid>
+  <Grid xs={12} sm={6} md={3}>Item 2</Grid>
+  <Grid xs={12} sm={6} md={3}>Item 3</Grid>
+  <Grid xs={12} sm={6} md={3}>Item 4</Grid>
+</Grid>
+```
+</div>
+
+In this example, each Grid item takes up the full width on extra-small devices (xs={12}) and half width on small devices (sm={6}), eventually becoming a quarter of the width on medium-sized devices and larger (md={3}).
+
+### Responsive Layout
+
+The Grid system is responsive, adapting to various screen sizes using the props xs, sm, md, and lg. These props define how many columns the item should span at different breakpoints.
+
+### Aligning Items
+
+Control the alignment of items within the container using verticalAlign and horizontalAlign props. For example:
+
+<div class="grid-code-example">
+```astro live
+---
+import { Grid } from "@gemini-ui-astro/components";
+---
+
+<Grid container>
+  <Grid xs={6} horizontalAlign="center"><div style={{height: '400px'}}>Centered Item</div></Grid>
+  <Grid xs={6} horizontalAlign="center" verticalAlign="center"><div>Vertically Centered Item</div></Grid>
+</Grid>
+```
+</div>
+
+### Gap Handling
+
+Define the space between grid items using gap, columnGap, and rowGap props. For instance:
+
+<div class="grid-code-example">
+```astro live
+---
+import { Grid } from "@gemini-ui-astro/components";
+---
+
+<Grid container gap="8px">
+  <Grid xs={12} sm={4}>Item 1</Grid>
+  <Grid xs={12} sm={4}>Item 2</Grid>
+  <Grid xs={12} sm={4}>Item 3</Grid>
+</Grid>
+```
+</div>
+
+This sets a uniform gap between grid items.
+
+You can also use `columnGap` and `rowGap` to define the space between columns and rows, respectively.
+
+### Auto column sizing
+
+You can use the `auto` size prop to make a column automatically take up the remaining space. For example:
+
+<div class="grid-code-example">
+```astro live
+---
+import { Grid } from "@gemini-ui-astro/components";
+---
+
+<Grid container gap="8px">
+  <Grid xs={12} sm={4}>Item 1</Grid>
+  <Grid xs={12} sm={4}>Item 2</Grid>
+  <Grid xs={12} sm="auto">Item 3 auto</Grid>
+</Grid>
+```
+</div>
+
+### Nested Grids
+
+You can nest Grid components to create complex layouts. For example:
+
+<div class="grid-code-example">
+```astro live
+---
+import { Grid } from "@gemini-ui-astro/components";
+---
+
+<Grid container gap="8px">
+  <Grid xs={12} sm={7}>
+    <Grid container gap="8px">
+      <Grid xs={12} sm={6}>Item 1</Grid>
+      <Grid xs={12} sm={6}>Item 2</Grid>
+    </Grid>
+  </Grid>
+  <Grid xs={12} sm={5}>Item 3</Grid>
+</Grid>
+```
+</div>
+
+## Props
+
+The `Grid` component has the following props.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>container</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>Defines a row in the grid</td>
+    </tr>
+    <tr>
+      <td>gap</td>
+      <td>OptionalSizeProp</td>
+      <td>-</td>
+      <td>Defines the gap between columns and rows</td>
+    </tr>
+    <tr>
+      <td>columnGap</td>
+      <td>OptionalSizeProp</td>
+      <td>-</td>
+      <td>Defines the gap between columns</td>
+    </tr>
+    <tr>
+      <td>rowGap</td>
+      <td>OptionalSizeProp</td>
+      <td>-</td>
+      <td>Defines the gap between rows</td>
+    </tr>
+    <tr>
+      <td>xs</td>
+      <td>1-12 | 'auto'</td>
+      <td>-</td>
+      <td>Defines the column size for mobile devices and larger</td>
+    </tr>
+    <tr>
+      <td>sm</td>
+      <td>1-12 | 'auto'</td>
+      <td>-</td>
+      <td>Overrides the column size for Tablet devices and larger</td>
+    </tr>
+    <tr>
+      <td>md</td>
+      <td>1-12 | 'auto'</td>
+      <td>-</td>
+      <td>Overrides the column size for Small Desktop devices and larger</td>
+    </tr>
+    <tr>
+      <td>lg</td>
+      <td>1-12 | 'auto'</td>
+      <td>-</td>
+      <td>Overrides the column size for Large Desktop devices and larger</td>
+    </tr>
+    <tr>
+      <td>verticalAlign</td>
+      <td>"flex-start" | "center" | "flex-end"</td>
+      <td>"flex-start"</td>
+      <td>
+        Defines how the content will be placed vertically within the column
+      </td>
+    </tr>
+    <tr>
+      <td>horizontallyAlign</td>
+      <td>"left" | "center" | "right"</td>
+      <td>"left"</td>
+      <td>
+        Defines how the content will be placed horizontally within the column
+      </td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Override or extend the styles applied to the component.</td>
+    </tr>
+  </tbody>
+</table>
