@@ -1,0 +1,16 @@
+{
+  "name": "@gemini-ui-css/components",
+  "version": "develop",
+  "type": "module",
+  "exports": {
+    "./alert.css": "./src/alert.css",
+    "./button.css": "./src/button.css",
+    "./card.css": "./src/card.css",
+    "./divider.css": "./src/divider.css"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [],
+  "scripts": {}
+}

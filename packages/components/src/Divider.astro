@@ -1,7 +1,9 @@
 ---
+import "@gemini-ui-css/components/divider.css";
 import { classMerge, type OptionalSizeProp } from "@gemini-ui-astro/core";
+import { getSizeProp } from "@gemini-ui-astro/core";
 
-export interface DividerProps {
+export interface Props {
   class?: string;
   thickness?: string;
   orientation?: "horizontal" | "vertical";
@@ -17,8 +19,8 @@ const {
   thickness = "1px",
   orientation = "horizontal",
   color = "#323232",
-  mt = 0,
-  mb = 0,
+  mt = 1,
+  mb = 1,
   ml = 0,
   mr = 0,
 } = Astro.props;
@@ -26,21 +28,14 @@ const {
 
 <hr class={classMerge("gx-divider", className, `gx-divider-${orientation}`)} />
 
-<style lang="scss" define:vars={{ thickness, color, mt, mb, ml, mr }}>
-  .gx-divider {
-    border: 0;
-    margin: 0;
-    border-top: var(--thickness) solid var(--color);
-    margin-top: var(--mt);
-    margin-bottom: var(--mb);
-    margin-left: var(--ml);
-    margin-right: var(--mr);
-
-    &.gx-divider-vertical {
-      border-top: none;
-      border-right: var(--thickness) solid var(--color);
-      height: auto;
-      align-self: stretch;
-    }
-  }
-</style>
+<style
+  lang="scss"
+  define:vars={{
+    "gx-divider-thickness": thickness,
+    "gx-divider-color": color,
+    "gx-divider-mt": getSizeProp(mt, 1),
+    "gx-divider-mb": getSizeProp(mb, 1),
+    "gx-divider-ml": getSizeProp(ml, 0),
+    "gx-divider-mr": getSizeProp(mr, 0),
+  }}
+></style>

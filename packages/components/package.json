@@ -1566,6 +1566,7 @@
   },
   "peerDependencies": {
     "astro": "^4.0.0",
+    "@gemini-ui-css/components": "*",
     "@gemini-ui-astro/core": "*",
     "sass": "*"
   }

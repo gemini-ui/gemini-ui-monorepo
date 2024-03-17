@@ -16,7 +16,7 @@ then
   exit 0
 fi
 
-requiredPattern="^[a-z]+\((website|core|components|components-blog|styles|repo)\)!?: .*$"
+requiredPattern="^[a-z]+\((website|css|core|components|components-blog|styles|repo)(,(website|css|core|components|components-blog|styles|repo))*\)!?: .*$"
 if ! [[ $message =~ $requiredPattern ]];
 then
   echo ""
@@ -37,7 +37,7 @@ then
   echo "  - BREAKING CHANGE (for public API changes which are not backwards compatible)"
   echo ""
   echo "Allowed packages or app names:"
-  echo "  website, core, components, components-blog, styles, repo"
+  echo "  website, css, core, components, components-blog, styles, repo"
   echo ""
   echo "Example:"
   echo "  feat(components): add button component"

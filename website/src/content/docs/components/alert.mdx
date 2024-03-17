@@ -82,3 +82,40 @@ The `Alert` component has the following props.
     </tr>
   </tbody>
 </table>
+
+## CSS API
+
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
+```astro live
+---
+import "@gemini-ui-css/components/alert.css";
+---
+
+<section
+  class="gx-alert gx-alert-severity-success gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a success alert</div>
+</section>
+<section
+  class="gx-alert gx-alert-severity-error gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a error alert</div>
+</section>
+<section
+  class="gx-alert gx-alert-severity-info gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a info alert</div>
+</section>
+<section
+  class="gx-alert gx-alert-severity-warning gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a warning alert</div>
+</section>
+```
