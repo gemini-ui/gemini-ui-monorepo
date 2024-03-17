@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.5...gemini-ui-v0.0.6) (2024-03-17)
+
+
+### Features
+
+* **website:** Added starlight docs for website, rebuilt Grid using flexbox ([#47](https://github.com/gemini-ui/gemini-ui-monorepo/issues/47)) ([3ff5773](https://github.com/gemini-ui/gemini-ui-monorepo/commit/3ff5773d08130af92722e9eeefa7f66ad92e3ea9))
+
 ## [0.0.5](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.4...gemini-ui-v0.0.5) (2024-02-16)
 
 
