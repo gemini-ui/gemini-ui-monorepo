@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.6...gemini-ui-v0.0.7) (2024-03-19)
+
+
+### Bug Fixes
+
+* **components:** fix postinstall build icons hook ([#50](https://github.com/gemini-ui/gemini-ui-monorepo/issues/50)) ([a8023fd](https://github.com/gemini-ui/gemini-ui-monorepo/commit/a8023fd93bc532131d1b94f2cb23a6992937fe0c))
+
 ## [0.0.6](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.5...gemini-ui-v0.0.6) (2024-03-17)
 
 
