@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.7...gemini-ui-v0.0.8) (2024-03-20)
+
+
+### Bug Fixes
+
+* **components:** Include icons in NPM publish ([#53](https://github.com/gemini-ui/gemini-ui-monorepo/issues/53)) ([9503c31](https://github.com/gemini-ui/gemini-ui-monorepo/commit/9503c31f892bd4e45ebc716b33a7531ae6b1b8d9))
+
 ## [0.0.7](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.6...gemini-ui-v0.0.7) (2024-03-19)
 
 
