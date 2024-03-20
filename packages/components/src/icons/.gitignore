@@ -1,4 +1,5 @@
 *
 !.gitignore
+!.npmignore
 !__Icon.astro
 !LICENSE
