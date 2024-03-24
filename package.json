@@ -1,6 +1,10 @@
 {
   "name": "gemini-ui",
   "version": "0.0.10",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gemini-ui/gemini-ui-monorepo"
+  },
   "workspaces": [
     "packages/*",
     "website"
