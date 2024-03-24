@@ -1,0 +1,42 @@
+---
+title: 2. Configuration
+description: A guide to configuring Gemini UI
+---
+
+Gemini UI exposes a set of configuration properties via the `Styles` component. This should be included once on each page of your app. Adding this to the layout component is a good place to start.
+
+## Basic Usage
+
+The `Styles` component needs to be included once per page. This will apply the default configuration to the page.
+
+```astro
+---
+import { Styles } from "@gemini-ui-astro/styles";
+---
+
+<Styles />
+```
+
+## Overrides
+
+The default values for each configuration option can be overridden.
+
+```astro
+---
+import { Styles } from "@gemini-ui-astro/styles";
+---
+
+<Styles
+  size={{
+    0: "0",
+    1: "0.25rem",
+    2: "0.5rem",
+    3: "0.75rem",
+    4: "1rem",
+    5: "1.25rem",
+    6: "1.5rem",
+    7: "1.75rem",
+    8: "2rem",
+  }}
+/>
+```
