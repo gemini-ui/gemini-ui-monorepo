@@ -23,7 +23,7 @@ export type CssSizeUnit =
   | "vw"
   | "%";
 export type SizeProp =
-  | NumberOrString<0 | 1 | 2 | 3 | 4 | 5>
+  | NumberOrString<0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8>
   | `${number}${CssSizeUnit}`;
 export type OptionalSizeProp = SizeProp | undefined | null | false;
 
@@ -38,7 +38,7 @@ export function getSizeProp(
 ): string {
   switch (typeof size) {
     case "number":
-      if (Number.isInteger(size) && size >= 1 && size <= 5) {
+      if (Number.isInteger(size) && size >= 0 && size <= 8) {
         return `var(--gx-size-${size})`;
       }
       throw new Error("Invalid size prop");
@@ -48,9 +48,13 @@ export function getSizeProp(
       }
       return size;
     default:
-      if (!size && defaultSize) {
-        return getSizeProp(defaultSize);
+      if (isSizeProp(defaultSize)) {
+        return getSizeProp(defaultSize as SizeProp);
       }
       throw new Error("Invalid size prop");
   }
+}
+
+function isSizeProp(value: SizeProp | undefined): value is SizeProp {
+  return value !== undefined && value !== null;
 }
