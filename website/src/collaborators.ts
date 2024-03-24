@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/core";
 
 async function fetchCollaborators() {
-  const githubToken = process.env.GITHUB_TOKEN_RETRIEVE_CONTRIBUTORS;
+  const githubToken = import.meta.env.GITHUB_TOKEN_RETRIEVE_CONTRIBUTORS;
 
   if (!githubToken) {
     return [];
