@@ -18,7 +18,9 @@ hero:
         target: _blank
 ---
 
+import { Image } from "@gemini-ui-astro/components";
 import { Card, CardGrid } from "@astrojs/starlight/components";
+import { maintainers, contributors } from "../../collaborators";
 
 <CardGrid stagger>
   <Card title="Accelerate Your Frontend Development" icon="pencil">
@@ -47,3 +49,57 @@ import { Card, CardGrid } from "@astrojs/starlight/components";
     providing an optimal user experience and boosting your site's SEO ranking.
   </Card>
 </CardGrid>
+
+<hr style="margin-top: 200px;" />
+
+## Collaborators
+
+Gemini UI wouldn't be possible without the help of our amazing collaborators. We're grateful for their contributions and dedication to the project.
+
+### Core Maintainers
+
+<div style="display: flex; gap: 16px;">
+  {maintainers.length === 0 && <p>No maintainers found</p>}
+  {maintainers.map((collaborator, index) => (
+    <a href={collaborator.html_url} target="_blank">
+      <Image
+        src={collaborator.avatar_url}
+        alt={collaborator.login}
+        title={collaborator.login}
+        width="160px"
+        height="160px"
+        figureProps={{
+          style: "min-width: 160px; min-height: 160px;",
+        }}
+        caption
+        dynamicGlow
+      >
+        {collaborator.login}
+      </Image>
+    </a>
+  ))}
+</div>
+
+### Contributors
+
+<div style="display: flex; gap: 16px;">
+  {contributors.length === 0 && <p>No contributors found</p>}
+  {contributors.map((collaborator, index) => (
+    <a href={collaborator.html_url} target="_blank">
+      <Image
+        src={collaborator.avatar_url}
+        alt={collaborator.login}
+        title={collaborator.login}
+        width="120px"
+        height="120px"
+        figureProps={{
+          style: "min-width: 120px; min-height: 120px;",
+        }}
+        caption
+        dynamicGlow
+      >
+        {collaborator.login}
+      </Image>
+    </a>
+  ))}
+</div>
