@@ -21,6 +21,10 @@ export default defineConfig({
           label: "Components",
           autogenerate: { directory: "components" },
         },
+        {
+          label: "Concepts",
+          autogenerate: { directory: "concepts" },
+        },
       ],
     }),
   ],
