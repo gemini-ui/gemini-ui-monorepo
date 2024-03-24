@@ -59,14 +59,6 @@ export interface Props {}
     element.style.setProperty("--gx-mouse-angle", `${angle - 90}deg`);
     element.style.setProperty("--gx-mouse-progress-x", progressX.toString());
     element.style.setProperty("--gx-mouse-progress-y", progressY.toString());
-    element.style.setProperty(
-      "--gx-element-width",
-      element.offsetWidth.toString(),
-    );
-    element.style.setProperty(
-      "--gx-element-height",
-      element.offsetHeight.toString(),
-    );
   }
 
   function trackElement(element: HTMLElement) {
