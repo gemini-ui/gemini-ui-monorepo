@@ -1,0 +1,32 @@
+---
+title: Size Props
+description: An overview of size props in Gemini UI.
+---
+
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
+Size props in Gemini UI allow you to specify sizes in a consistent way across components. This helps to ensure that your UI is visually consistent.
+
+## Usage
+
+Size props accept a whole number or a string between 0 and 8. The corresponding size is determined globally by the `Styles` component. See the [Configuration](/guides/2-configuration) for more information.
+
+```astro live
+---
+import EmojiSatisfiedRegular from "@gemini-ui-astro/components/icons/regular/EmojiSatisfiedRegular";
+---
+
+<EmojiSatisfiedRegular size="8" />
+```
+
+Size props also accept arbitrary CSS values:
+
+```astro live
+---
+import EmojiSatisfiedRegular from "@gemini-ui-astro/components/icons/regular/EmojiSatisfiedRegular";
+---
+
+<EmojiSatisfiedRegular size="4rem" />
+```
