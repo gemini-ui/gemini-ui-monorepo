@@ -8,7 +8,7 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 const { class: className, size, ...rest } = Astro.props;
 ---
 
-<i class="gx-icon gx-icon-{{ icon_name }}"></i>
+<i {...rest} class="gx-icon gx-icon-{{ icon_name }}"></i>
 
 <style
   lang="scss"
