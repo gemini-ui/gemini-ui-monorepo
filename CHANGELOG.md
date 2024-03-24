@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.9](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.8...gemini-ui-v0.0.9) (2024-03-24)
+
+
+### Bug Fixes
+
+* **components:** add fixes for size props & update various docs ([#55](https://github.com/gemini-ui/gemini-ui-monorepo/issues/55)) ([e6878db](https://github.com/gemini-ui/gemini-ui-monorepo/commit/e6878db412b5df364d9f3de97da3da5cff92e534))
+
 ## [0.0.8](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.7...gemini-ui-v0.0.8) (2024-03-20)
 
 
