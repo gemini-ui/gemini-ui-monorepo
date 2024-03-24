@@ -1,0 +1,136 @@
+---
+title: 3. Dynamic Glow
+description: A guide to configuring the dynamic glow effect.
+---
+
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
+The dynamic glow effect is an effect supported by many of the Gemini UI components. It applies a glowing effect to the component, which moves dynamically based on the position of the mouse cursor. This gives sites a more interactive and engaging feel.
+
+## Basic Usage
+
+```astro live
+---
+import { DynamicGlow } from "@gemini-ui-astro/components";
+import { Grid, Card } from "@gemini-ui-astro/components";
+---
+
+<DynamicGlow />
+
+<Grid container gap="4">
+  <Grid xs={12} sm={6}>
+    <Card dynamicGlow>A</Card>
+  </Grid>
+  <Grid xs={12} sm={6}>
+    <Card dynamicGlow>A</Card>
+  </Grid>
+  <Grid xs={12} sm={6}>
+    <Card dynamicGlow>A</Card>
+  </Grid>
+  <Grid xs={12} sm={6}>
+    <Card dynamicGlow>A</Card>
+  </Grid>
+</Grid>
+```
+
+## CSS API
+
+It's possible to customise the dynamic glow effect, or use it with your own components, by using the CSS API.
+
+The `DynamicGlow` component injects a script in the page which will search for any element with the `gx-dynamic-glow` class and apply CSS variables to it which can be used to customise the glow effect.
+
+The following CSS variables will be set by the script:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`--gx-element-width`</td>
+      <td>number</td>
+      <td>The width of the element.</td>
+    </tr>
+    <tr>
+      <td>`--gx-element-height`</td>
+      <td>number</td>
+      <td>The height of the element.</td>
+    </tr>
+    <tr>
+      <td>`--gx-mouse-distance-x`</td>
+      <td>number</td>
+      <td>
+        The horizontal distance from the mouse cursor to the nearest edge of the
+        elements bounding box. The value is 0 when the cursor is hovering the
+        element.
+      </td>
+    </tr>
+    <tr>
+      <td>`--gx-mouse-distance-y`</td>
+      <td>number</td>
+      <td>
+        The vertical distance from the mouse cursor to the nearest edge of the
+        elements bounding box. The value is 0 when the cursor is hovering the
+        element.
+      </td>
+    </tr>
+    <tr>
+      <td>`--gx-mouse-distance`</td>
+      <td>number</td>
+      <td>
+        The distance from the mouse cursor to the nearest edge of the elements
+        bounding box. The value is 0 when the cursor is hovering the element.
+      </td>
+    </tr>
+    <tr>
+      <td>`--gx-mouse-angle`</td>
+      <td>number</td>
+      <td>
+        The angle from the mouse cursor to the nearest point on the edge of the
+        elements bounding box.
+      </td>
+    </tr>
+    <tr>
+      <td>`--gx-mouse-progress-x`</td>
+      <td>number</td>
+      <td>
+        The fraction of the component across which the mouse has travelled in
+        the horizontal direction. The value is between 0 and 1.
+      </td>
+    </tr>
+    <tr>
+      <td>`--gx-mouse-progress-y`</td>
+      <td>number</td>
+      <td>
+        The fraction of the component across which the mouse has travelled in
+        the vertical direction. The value is between 0 and 1.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+To avoid an infinite loop, ensure that you do not use these variables in a way which will cause the components position or size to change.
+
+### Example
+
+```astro live
+---
+import { DynamicGlow } from "@gemini-ui-astro/components";
+---
+
+<span class="gx-dynamic-glow">Dynamic glow example</span>
+
+<style>
+  span {
+    transform: rotate(var(--gx-mouse-angle));
+  }
+</style>
+```
+
+As shown in the example above, the CSS properties can be used to create arbitrary effects.

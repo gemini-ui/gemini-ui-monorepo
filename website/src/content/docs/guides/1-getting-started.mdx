@@ -1,0 +1,76 @@
+---
+title: 1. Getting Started
+description: A guide to setting up Gemini UI
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Alert } from "@gemini-ui-astro/components";
+
+To install Gemini UI run the following command
+
+<Tabs>
+  <TabItem label="npm">``` npm i @gemini-ui-astro/components ```</TabItem>
+  <TabItem label="Yarn">``` yarn add @gemini-ui-astro/components ```</TabItem>
+</Tabs>
+
+<div style={{ marginTop: "48px" }}>
+  <Alert severity="warning" dynamicGlow pulse="light">
+    <span style={{ display: "block", marginTop: "-1rem" }}>
+      Please note, this library is still under construction and may having
+      breaking changes going forward. We will aim to minimise any impact with
+      our future changes
+    </span>
+  </Alert>
+</div>
+
+## Setup
+
+Most Gemini UI components adhere to configuration values set by a global `Styles` object. This should be included in each page where you are using Gemini UI components. One way to do this is to create a layout component that includes the `Styles` object and wrap your pages with it.
+
+```astro
+---
+import { Styles } from "@gemini-ui-astro/components";
+---
+
+<Styles />
+```
+
+For more information about the `Styles` object, see the [Styles API](/guides/2-configuration).
+
+## Basic Usage
+
+After installation, you can import any Gemini UI component and start playing around. For example, try changing the `dynamicGlow` on the Card to see how the style changes:
+
+```astro live
+---
+import { Card } from "@gemini-ui-astro/components";
+---
+
+<Card>This is a card</Card>
+```
+
+## Dynamic Glow
+
+The `dynamicGlow` prop is available on many Gemini UI components and adds a dynamic glow effect to the component. This is a great way to make your site feel more interactive and engaging.
+
+To enable usage of the `dynamicGlow` prop, add the `DynamicGlow` component to pages where you are using Gemini UI components. For example, this could be added to a layout component:
+
+```astro
+---
+import { DynamicGlow } from "@gemini-ui-astro/components";
+---
+
+<DynamicGlow />
+```
+
+This prop can then be used as follows:
+
+```astro live
+---
+import { Alert } from "@gemini-ui-astro/components";
+---
+
+<Alert severity="info" dynamicGlow pulse="light">
+  This is an alert with a dynamic glow effect
+</Alert>
+```

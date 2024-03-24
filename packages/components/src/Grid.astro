@@ -62,8 +62,8 @@ const classList = classMerge(
 <style
   lang="scss"
   define:vars={{
-    "gx-column-gap": container ? gap || columnGap : null,
-    "gx-row-gap": container ? gap || columnGap : null,
+    "gx-column-gap": container ? getSizeProp(gap || columnGap, 0) : null,
+    "gx-row-gap": container ? getSizeProp(gap || columnGap, 0) : null,
     "gx-horizontal-align": horizontalAlign || "left",
     "gx-vertical-align": verticalAlign || "flex-start",
   }}
