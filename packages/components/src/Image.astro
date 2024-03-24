@@ -1,18 +1,26 @@
 ---
 import { classMerge } from "@gemini-ui-astro/core";
+import { Image as AstroImage } from "astro:assets";
 
 export interface Props extends astroHTML.JSX.ImgHTMLAttributes {
   caption?: boolean;
   dynamicGlow?: boolean;
+  figureProps?: astroHTML.JSX.HTMLAttributes;
 }
 
-const { caption, class: className, dynamicGlow, ...props } = Astro.props;
+const {
+  caption,
+  class: className,
+  dynamicGlow,
+  figureProps: { class: figureClassName, ...figureProps } = {},
+  ...props
+} = Astro.props;
 ---
 
 {
   caption && (
-    <figure class="gx-figure">
-      <img
+    <figure {...figureProps} class={classMerge("gx-figure", figureClassName)}>
+      <AstroImage
         {...props}
         class={classMerge(
           "gx-image",
