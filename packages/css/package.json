@@ -6,7 +6,8 @@
     "./alert.css": "./src/alert.css",
     "./button.css": "./src/button.css",
     "./card.css": "./src/card.css",
-    "./divider.css": "./src/divider.css"
+    "./divider.css": "./src/divider.css",
+    "./image.css": "./src/image.css"
   },
   "files": [
     "src"
