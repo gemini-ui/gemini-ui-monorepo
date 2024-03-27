@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.11](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.10...gemini-ui-v0.0.11) (2024-03-27)
+
+
+### Features
+
+* **website:** Add contributors section ([#60](https://github.com/gemini-ui/gemini-ui-monorepo/issues/60)) ([2b04c52](https://github.com/gemini-ui/gemini-ui-monorepo/commit/2b04c52ad795a0cf9413c2af91940a849f181735))
+
+
+### Bug Fixes
+
+* **repo:** add repo links to package jsons ([#58](https://github.com/gemini-ui/gemini-ui-monorepo/issues/58)) ([3c6f57a](https://github.com/gemini-ui/gemini-ui-monorepo/commit/3c6f57adac948b3d629ce66befc2d4325a02024a))
+* **repo:** tidy up package readmes ([#59](https://github.com/gemini-ui/gemini-ui-monorepo/issues/59)) ([1ab9da3](https://github.com/gemini-ui/gemini-ui-monorepo/commit/1ab9da3861be199887257bd9f79cd681c94874cf))
+
 ## [0.0.10](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.9...gemini-ui-v0.0.10) (2024-03-27)
 
 
