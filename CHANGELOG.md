@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.10](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.9...gemini-ui-v0.0.10) (2024-03-27)
+
+
+### Features
+
+* **repo,website,components:** Add @gemini-ui-css/components ([#49](https://github.com/gemini-ui/gemini-ui-monorepo/issues/49)) ([dcbb378](https://github.com/gemini-ui/gemini-ui-monorepo/commit/dcbb378d90890d3cd469d4ffbfb73db37f7edfb3))
+
 ## [0.0.9](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.8...gemini-ui-v0.0.9) (2024-03-24)
 
 
