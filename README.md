@@ -25,4 +25,4 @@ See the documentation at [gemini-ui.dev](https://gemini-ui.dev).
 
 ## Contributing
 
-Gemini UI is still in pre-1.0 development. We are not currently accepting one-off contributions. If you're interested in getting involved with the project, please leave a comment on [this discussion](https://github.com/gemini-ui/gemini-ui-monorepo/discussions/40).
+Gemini UI is still in pre-1.0 development and we don't yet have documentation for contributors. That said, the project is now stable enough to accept contributions, so feel free to raise a PR or an issue if you don't mind muddling through. If you're interested in getting involved with the project as a maintainer, please leave a comment on [this discussion](https://github.com/gemini-ui/gemini-ui-monorepo/discussions/40).
