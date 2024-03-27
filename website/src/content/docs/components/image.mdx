@@ -3,6 +3,10 @@ title: Image
 description: Used to display images.
 ---
 
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
 The `Image` component is used to display images. It can be used to display static images and have a caption .
 
 ```astro live
@@ -31,7 +35,6 @@ import { Image } from "@gemini-ui-astro/components";
 ---
 
 <Image
-  class="neom-1"
   src="/neom2-600x400.webp"
   alt="Sandstone plateau, Hisma Desert - NEOM, Saudi Arabia"
   width="600"
@@ -70,3 +73,40 @@ import { Image } from "@gemini-ui-astro/components";
     </tr>
   </tbody>
 </table>
+
+## CSS API
+
+```astro live
+---
+import "@gemini-ui-css/components/image.css";
+---
+
+<img
+  class="gx-image"
+  src="/neom-400x300.webp"
+  alt="Sandstone plateau, Hisma Desert - NEOM, Saudi Arabia"
+  width="600"
+  style="max-width: 85vw"
+/>
+```
+
+```astro live
+---
+import "@gemini-ui-css/components/image.css";
+---
+
+<figure class="gx-figure">
+  <img
+    class="gx-image"
+    src="/neom2-600x400.webp"
+    alt="Sandstone plateau, Hisma Desert - NEOM, Saudi Arabia"
+    width="600"
+    style="max-width: 85vw"
+  />
+  <figcaption class="gx-figure-caption">
+    Figure 2: The vibrant waters of NEOM, are home to some of the most
+    picturesque and pristine islands in the Red Sea | Islands of NEOM - NEOM,
+    Saudi Arabia.
+  </figcaption>
+</figure>
+```

@@ -3,6 +3,10 @@ title: Button
 description: Used to trigger an action or event.
 ---
 
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
 The `Button` component is used to trigger an action or event. It can be used to submit a form, navigate to a new page, or trigger an event.
 
 With Gemini UI it comes with a shimmer effect on hover.
@@ -37,3 +41,13 @@ The `Button` component has the following props.
     </tr>
   </tbody>
 </table>
+
+## CSS API
+
+```astro live
+---
+import "@gemini-ui-css/components/button.css";
+---
+
+<button class="gx-button">Click me!</button>
+```

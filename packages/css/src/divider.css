@@ -1,0 +1,23 @@
+.gx-divider {
+  --gx-divider-thickness: 1px;
+  --gx-divider-color: #323232;
+  --gx-divider-mt: var(--gx-size-1);
+  --gx-divider-mb: var(--gx-size-1);
+  --gx-divider-ml: var(--gx-size-0);
+  --gx-divider-mr: var(--gx-size-0);
+
+  border: 0;
+  margin: 0;
+  border-top: var(--gx-divider-thickness) solid var(--gx-divider-color);
+  margin-top: var(--gx-divider-mt);
+  margin-bottom: var(--gx-divider-mb);
+  margin-left: var(--gx-divider-ml);
+  margin-right: var(--gx-divider-mr);
+}
+
+.gx-divider.gx-divider-vertical {
+  border-top: none;
+  border-right: var(--gx-divider-thickness) solid var(--gx-divider-color);
+  height: auto;
+  align-self: stretch;
+}

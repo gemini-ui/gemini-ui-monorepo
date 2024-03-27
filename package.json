@@ -2,10 +2,7 @@
   "name": "gemini-ui",
   "version": "0.0.9",
   "workspaces": [
-    "packages/components",
-    "packages/components-blog",
-    "packages/core",
-    "packages/styles",
+    "packages/*",
     "website"
   ],
   "scripts": {

@@ -48,7 +48,7 @@ export function getSizeProp(
       }
       return size;
     default:
-      if (isSizeProp(defaultSize)) {
+      if (!size && isSizeProp(defaultSize)) {
         return getSizeProp(defaultSize as SizeProp);
       }
       throw new Error("Invalid size prop");

@@ -3,6 +3,10 @@ title: Divider
 description: Used to separate content in a list or between elements.
 ---
 
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
 The `Divider` component is used to separate content in a list or between elements. It can be a horizontal line or a vertical line.
 
 ```astro live
@@ -79,3 +83,15 @@ The `Button` component has the following props.
     </tr>
   </tbody>
 </table>
+
+## CSS API
+
+```astro live
+---
+import "@gemini-ui-css/components/divider.css";
+---
+
+Hello there!
+<hr class="gx-divider" />
+General Kenobi!
+```

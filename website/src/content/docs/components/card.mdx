@@ -13,8 +13,9 @@ import { Card } from "@gemini-ui-astro/components";
 import { Button } from "@gemini-ui-astro/components";
 ---
 
-<Card class="example-card" dynamicGlow style={{ marginBottom: "32px" }}>
+<Card dynamicGlow style={{ marginBottom: "32px" }}>
   <h2>Card Title 1</h2>
+  <br />
   <p>
     Officia non aliqua eu sunt nisi tempor fugiat magna. Cillum sint anim magna
     quis occaecat quis ea consectetur. Veniam nisi dolore proident aute minim
@@ -24,16 +25,19 @@ import { Button } from "@gemini-ui-astro/components";
     culpa veniam. Elit deserunt veniam culpa sit minim deserunt aliqua
     adipisicing duis.
   </p>
+  <br />
   <Button>Some Button</Button>
 </Card>
 <Card class="example-card" dynamicGlow>
   <h2>Card Title 2</h2>
+  <br />
   <p>
     Aute consectetur nostrud Lorem aliquip officia deserunt nulla. Aliquip est
     deserunt ex anim. Voluptate mollit minim incididunt consequat anim officia
     commodo mollit nisi culpa esse duis ut. Pariatur ut incididunt ipsum
     consectetur reprehenderit deserunt et do duis ut aliquip laboris dolor.
   </p>
+  <br />
   <Button>Some Button</Button>
 </Card>
 ```
@@ -66,3 +70,25 @@ The `Card` component has the following props.
     </tr>
   </tbody>
 </table>
+
+## CSS API
+
+```astro live
+---
+import "@gemini-ui-css/components/card.css";
+---
+
+<div class="gx-card">
+  <h2>Card Title</h2>
+  <br />
+  <p>
+    Officia non aliqua eu sunt nisi tempor fugiat magna. Cillum sint anim magna
+    quis occaecat quis ea consectetur. Veniam nisi dolore proident aute minim
+    consequat cillum esse laborum do nostrud esse sint. Elit nisi non cupidatat
+    voluptate laboris qui. Pariatur aute do ullamco id nulla minim. Cillum
+    proident quis adipisicing deserunt veniam cillum officia ut labore fugiat
+    culpa veniam. Elit deserunt veniam culpa sit minim deserunt aliqua
+    adipisicing duis.
+  </p>
+</div>
+```

@@ -10,6 +10,12 @@ permissions:
   contents: read
 
 jobs:
+  release-css:
+    name: Release @gemini-ui-astro/css
+    uses: ./.github/workflows/workflow-partial-release-npm.yml
+    with:
+      package_path: packages/css
+    secrets: inherit
   release-core:
     name: Release @gemini-ui-astro/core
     uses: ./.github/workflows/workflow-partial-release-npm.yml

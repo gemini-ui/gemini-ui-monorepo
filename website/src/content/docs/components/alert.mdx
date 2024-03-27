@@ -3,6 +3,10 @@ title: Alert
 description: Alerts display small messages to the user in a view that stands out to draw attention.
 ---
 
+import { Styles } from "@gemini-ui-astro/styles";
+
+<Styles />
+
 Alerts display small messages to the user in a view that stands out to draw attention.
 
 You can use the Alert component for multiple purposes such as informing the user about a successful operation, warning the user about a potential issue, or notifying the user about an error.
@@ -82,3 +86,36 @@ The `Alert` component has the following props.
     </tr>
   </tbody>
 </table>
+
+## CSS API
+
+```astro live
+---
+import "@gemini-ui-css/components/alert.css";
+---
+
+<section
+  class="gx-alert gx-alert-severity-success gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a success alert</div>
+</section>
+<section
+  class="gx-alert gx-alert-severity-error gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a error alert</div>
+</section>
+<section
+  class="gx-alert gx-alert-severity-info gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a info alert</div>
+</section>
+<section
+  class="gx-alert gx-alert-severity-warning gx-alert-pulse-light gx-dynamic-glow"
+>
+  <div class="gx-alert-pulse"></div>
+  <div class="gx-alert-message">This is a warning alert</div>
+</section>
+```

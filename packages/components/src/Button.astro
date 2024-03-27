@@ -1,4 +1,5 @@
 ---
+import "@gemini-ui-css/components/button.css";
 import { classMerge } from "@gemini-ui-astro/core";
 
 export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {}
@@ -14,42 +15,3 @@ TODO: Implement different button styles e.g. OutlineButton
 <button {...props} class={classMerge("gx-button", className)}>
   <slot />
 </button>
-
-<style lang="scss">
-  .gx-button {
-    font-size: 1rem;
-    color: white;
-    padding: 0.5rem 1rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background: rgb(93, 37, 246);
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 12px 0px;
-      background: rgb(110, 59, 248);
-      background-size: 400% 100%;
-      background-image: linear-gradient(
-        110deg,
-        rgb(110, 59, 248) 35%,
-        rgb(136, 93, 255) 50%,
-        rgb(110, 59, 248) 65%
-      );
-      animation: TransitioningBackground 0.5s linear forwards;
-    }
-
-    &:active {
-      background: rgb(93, 37, 246);
-    }
-  }
-
-  @keyframes TransitioningBackground {
-    0% {
-      background-position-x: 100%;
-    }
-    100% {
-      background-position-x: 0%;
-    }
-  }
-</style>

@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: Slashgear/action-check-pr-title@v4.3.0
         with:
-          regexp: "^[a-z]+\\((website|core|components|components-blog|styles|repo|main)\\)!?: .*$"
+          regexp: "^[a-z]+\\((website|core|components|components-blog|styles|repo|main)(,(website|core|components|components-blog|styles|repo|main))*\\)!?: .*$"
       - uses: mshick/add-pr-comment@v2
         if: ${{ failure() }}
         with:
