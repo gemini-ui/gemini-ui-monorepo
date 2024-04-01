@@ -56,3 +56,7 @@
   height: calc(var(--gx-accordion-item-max-height, 1000px) + 1rem);
   opacity: 1;
 }
+
+.gx-accordion-item.open .gx-accordion-title-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
