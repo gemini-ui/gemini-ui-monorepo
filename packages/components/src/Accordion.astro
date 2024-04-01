@@ -1,0 +1,66 @@
+---
+import "@gemini-ui-css/components/accordion.css";
+import { classMerge } from "@gemini-ui-astro/core";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  dynamicGlow?: boolean;
+}
+
+const { class: className, dynamicGlow, ...props } = Astro.props;
+---
+
+<div
+  {...props}
+  class={classMerge(
+    "gx-accordion",
+    dynamicGlow && "gx-dynamic-glow",
+    className,
+  )}
+  data-accordion
+>
+  <slot />
+</div>
+
+<script is:inline>
+  const accordion = document.querySelector("[data-accordion]");
+  accordion.addEventListener("click", function (event) {
+    const titleButton = event.target.closest(".gx-accordion-title");
+    if (!titleButton) return;
+
+    const item = titleButton.closest(".gx-accordion-item");
+    const content = item.querySelector(".gx-accordion-content");
+
+    // Calculate content height for animation
+    content.style.height = "none";
+    const contentHeight = content.scrollHeight + "px";
+
+    if (item.classList.contains("open")) {
+      // Begin closing the item
+      item.classList.remove("open");
+      setTimeout(() => {
+        content.style.setProperty("--gx-accordion-item-max-height", "0px");
+      }, 10);
+    } else {
+      // Close all other items
+      document
+        .querySelectorAll(".gx-accordion-item.open")
+        .forEach((openItem) => {
+          openItem.classList.remove("open");
+          const openContent = openItem.querySelector(".gx-accordion-content");
+          openContent.style.setProperty(
+            "--gx-accordion-item-max-height",
+            "0px",
+          );
+        });
+
+      // Open the clicked item
+      content.style.setProperty(
+        "--gx-accordion-item-max-height",
+        contentHeight,
+      );
+      setTimeout(() => {
+        item.classList.add("open");
+      }, 10);
+    }
+  });
+</script>

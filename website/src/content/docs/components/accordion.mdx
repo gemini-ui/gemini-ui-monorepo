@@ -1,0 +1,85 @@
+---
+title: Accordion
+description: Accordions can be used to toggle the visibility of content.
+---
+
+Accordions can be used to toggle the visibility of content. The content of the accordion can be any type of content, such as text, images, or other components.
+
+## Component
+
+### Basic Usage
+
+```astro live
+---
+import { Accordion, AccordionItem } from "@gemini-ui-astro/components";
+import { DynamicGlow } from "@gemini-ui-astro/components";
+---
+
+<Accordion dynamicGlow style={{ minWidth: "400px" }}>
+  <AccordionItem title="Section 1" id="section-1">
+    <p>This is the content of section 1</p>
+  </AccordionItem>
+  <AccordionItem title="Section 2" id="section-2">
+    <p>This is the content of section 2</p>
+  </AccordionItem>
+  <AccordionItem title="Section 3" id="section-3">
+    <p>This is the content of section 3</p>
+  </AccordionItem>
+</Accordion>
+```
+
+## Props
+
+The `Accordion` component has the following props.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dynamicGlow</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>A Gemini UI unique effect</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Override or extend the styles applied to the component.</td>
+    </tr>
+  </tbody>
+</table>
+
+The `AccordionItem` component has the following props.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td>''</td>
+      <td>The content displayed in the accordion button</td>
+    </tr>
+    <tr>
+      <td>children</td>
+      <td>html / string / img</td>
+      <td>-</td>
+      <td>The content within the accordion item</td>
+    </tr>
+  </tbody>
+</table>
