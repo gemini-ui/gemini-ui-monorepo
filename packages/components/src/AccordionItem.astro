@@ -1,0 +1,21 @@
+---
+import "@gemini-ui-css/components/accordion.css";
+import NavArrowDownRegular from "@gemini-ui-astro/components/icons/regular/NavArrowDownRegular";
+
+interface Props {
+  title: string;
+  id: string;
+}
+
+const { title, id } = Astro.props;
+---
+
+<div class="gx-accordion-item" data-id={id}>
+  <button class="gx-accordion-title">
+    {title}
+    <div class="gx-accordion-title-icon"><NavArrowDownRegular /></div>
+  </button>
+  <div class="gx-accordion-content">
+    <slot />
+  </div>
+</div>

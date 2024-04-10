@@ -3,6 +3,7 @@
   "version": "develop",
   "type": "module",
   "exports": {
+    "./accordion.css": "./src/accordion.css",
     "./alert.css": "./src/alert.css",
     "./button.css": "./src/button.css",
     "./card.css": "./src/card.css",

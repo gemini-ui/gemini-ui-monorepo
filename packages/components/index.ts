@@ -10,3 +10,5 @@ export { default as DynamicGlow } from "./src/DynamicGlow.astro";
 export { default as Grid } from "./src/Grid.astro";
 export { default as Image } from "./src/Image.astro";
 export { default as Typography } from "./src/Typography.astro";
+export { default as Accordion } from "./src/Accordion.astro";
+export { default as AccordionItem } from "./src/AccordionItem.astro";
