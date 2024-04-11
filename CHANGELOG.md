@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.12](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.11...gemini-ui-v0.0.12) (2024-04-10)
+
+
+### Features
+
+* **components:** Added Accordion component ([#78](https://github.com/gemini-ui/gemini-ui-monorepo/issues/78)) ([b22f9c5](https://github.com/gemini-ui/gemini-ui-monorepo/commit/b22f9c5c02367423c5f19e38b16b068d49a70bff))
+
 ## [0.0.11](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.10...gemini-ui-v0.0.11) (2024-03-27)
 
 
