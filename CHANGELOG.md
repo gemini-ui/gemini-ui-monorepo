@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.14](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.13...gemini-ui-v0.0.14) (2024-04-20)
+
+
+### Bug Fixes
+
+* **components:** release icons ([#82](https://github.com/gemini-ui/gemini-ui-monorepo/issues/82)) ([aec69e1](https://github.com/gemini-ui/gemini-ui-monorepo/commit/aec69e14a6f49508aa6d9269c44a3b27dfcb2924))
+
 ## [0.0.13](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.12...gemini-ui-v0.0.13) (2024-04-20)
 
 
