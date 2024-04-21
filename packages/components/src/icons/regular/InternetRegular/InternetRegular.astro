@@ -1,0 +1,35 @@
+---
+import { getSizeProp, type OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  size?: OptionalSizeProp;
+}
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<i {...rest} class="gx-icon gx-icon-internet-regular"></i>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-size": size ? getSizeProp(size) : "inherit",
+  }}
+>
+  .gx-icon-internet-regular::before{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke-width="1.5"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M13 2.05S16 6 16 12m-5 9.95S8 18 8 12s3-9.95 3-9.95M2.63 15.5H12m-9.37-7h18.74"/><path stroke="currentColor" d="M21.879 17.917c.494.304.463 1.043-.045 1.101l-2.567.291-1.151 2.312c-.228.459-.933.234-1.05-.334l-1.255-6.116c-.099-.48.333-.782.75-.525z" clip-rule="evenodd"/></svg>');}
+
+  .gx-icon {
+    display: inline-block;
+    font-size: var(--gx-size);
+
+    &::before {
+      content: " ";
+      display: block;
+      background: currentColor;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      width: 1em;
+      height: 1em;
+    }
+  }
+</style>

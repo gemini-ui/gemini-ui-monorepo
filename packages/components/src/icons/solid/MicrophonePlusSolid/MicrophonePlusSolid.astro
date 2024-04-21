@@ -1,0 +1,35 @@
+---
+import { getSizeProp, type OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  size?: OptionalSizeProp;
+}
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<i {...rest} class="gx-icon gx-icon-microphone-plus-solid"></i>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-size": size ? getSizeProp(size) : "inherit",
+  }}
+>
+  .gx-icon-microphone-plus-solid::before{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.992 19h3m3 0h-3m0 0v-3m0 3v3"/><rect width="6" height="12" x="5" y="2" fill="currentColor" stroke="currentColor" stroke-width="1.5" rx="3"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 10v1a7 7 0 0 0 7 7v0a7 7 0 0 0 7-7v-1m-7 8v4m0 0H5m3 0h3"/></svg>');}
+
+  .gx-icon {
+    display: inline-block;
+    font-size: var(--gx-size);
+
+    &::before {
+      content: " ";
+      display: block;
+      background: currentColor;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      width: 1em;
+      height: 1em;
+    }
+  }
+</style>

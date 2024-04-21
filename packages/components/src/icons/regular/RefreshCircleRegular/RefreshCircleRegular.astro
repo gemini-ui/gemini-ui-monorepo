@@ -1,0 +1,35 @@
+---
+import { getSizeProp, type OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  size?: OptionalSizeProp;
+}
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<i {...rest} class="gx-icon gx-icon-refresh-circle-regular"></i>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-size": size ? getSizeProp(size) : "inherit",
+  }}
+>
+  .gx-icon-refresh-circle-regular::before{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M16.583 9.667C15.81 8.097 14.043 7 11.988 7 9.388 7 7.25 8.754 7 11"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M14.494 9.722H16.4a.6.6 0 0 0 .6-.6V7.5m-9.583 6.167C8.191 15.629 9.957 17 12.012 17c2.6 0 4.736-2.193 4.988-5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M9.506 13.622H7.6a.6.6 0 0 0-.6.6V16.4"/></svg>');}
+
+  .gx-icon {
+    display: inline-block;
+    font-size: var(--gx-size);
+
+    &::before {
+      content: " ";
+      display: block;
+      background: currentColor;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      width: 1em;
+      height: 1em;
+    }
+  }
+</style>

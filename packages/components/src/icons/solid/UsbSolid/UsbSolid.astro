@@ -1,0 +1,35 @@
+---
+import { getSizeProp, type OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  size?: OptionalSizeProp;
+}
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<i {...rest} class="gx-icon gx-icon-usb-solid"></i>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-size": size ? getSizeProp(size) : "inherit",
+  }}
+>
+  .gx-icon-usb-solid::before{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.5 2v15m0-3 5.5-2V8.5M12.5 16 7 14.5v-3"/><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.5 22a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m4-16.5v3h3v-3z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10.5 4 2-2 2 2"/><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/></svg>');}
+
+  .gx-icon {
+    display: inline-block;
+    font-size: var(--gx-size);
+
+    &::before {
+      content: " ";
+      display: block;
+      background: currentColor;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      width: 1em;
+      height: 1em;
+    }
+  }
+</style>

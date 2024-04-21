@@ -1,0 +1,35 @@
+---
+import { getSizeProp, type OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  size?: OptionalSizeProp;
+}
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<i {...rest} class="gx-icon gx-icon-navigator-alt-regular"></i>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-size": size ? getSizeProp(size) : "inherit",
+  }}
+>
+  .gx-icon-navigator-alt-regular::before{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path stroke="currentColor" d="M13.93 17.869c-.322.93-1.637.929-1.958-.001l-1.62-4.694-4.57-1.943c-.905-.385-.814-1.698.136-1.954L16.15 6.516a1.036 1.036 0 0 1 1.249 1.34z" clip-rule="evenodd"/></svg>');}
+
+  .gx-icon {
+    display: inline-block;
+    font-size: var(--gx-size);
+
+    &::before {
+      content: " ";
+      display: block;
+      background: currentColor;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      width: 1em;
+      height: 1em;
+    }
+  }
+</style>

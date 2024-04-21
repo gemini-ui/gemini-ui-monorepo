@@ -1562,8 +1562,6 @@
     "astro-component"
   ],
   "scripts": {
-    "prepublish": "npm run build:icons",
-    "workspace:hooks:postinstall": "npm run build:icons",
     "build:icons": "node ./scripts/buildIcons.mjs"
   },
   "devDependencies": {
