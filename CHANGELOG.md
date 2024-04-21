@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.15](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.14...gemini-ui-v0.0.15) (2024-04-21)
+
+
+### Features
+
+* **components:** add icons to version control ([#84](https://github.com/gemini-ui/gemini-ui-monorepo/issues/84)) ([5cd220d](https://github.com/gemini-ui/gemini-ui-monorepo/commit/5cd220de6d45a04696a7d0734f8fcab304b168e0))
+
 ## [0.0.14](https://github.com/gemini-ui/gemini-ui-monorepo/compare/gemini-ui-v0.0.13...gemini-ui-v0.0.14) (2024-04-20)
 
 
