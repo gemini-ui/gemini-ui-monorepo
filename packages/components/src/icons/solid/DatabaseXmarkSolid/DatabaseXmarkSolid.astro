@@ -1,0 +1,35 @@
+---
+import { getSizeProp, type OptionalSizeProp } from "@gemini-ui-astro/core";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  size?: OptionalSizeProp;
+}
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<i {...rest} class="gx-icon gx-icon-database-xmark-solid"></i>
+
+<style
+  lang="scss"
+  define:vars={{
+    "gx-size": size ? getSizeProp(size) : "inherit",
+  }}
+>
+  .gx-icon-database-xmark-solid::before{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M15.008 16.346c-.916.234-2.204.404-4.008.404-3.433 0-4.999-.617-5.69-1.11a1 1 0 0 1-.073-.072c-.283-.302-.823-.57-1.237-.568a.75.75 0 0 0-.75.75V18H4c-.75 0-.75.002-.75.002v.035a1.4 1.4 0 0 0 .024.215c.021.128.061.295.136.489.152.39.441.87.977 1.328C5.453 20.983 7.41 21.75 11 21.75c1.589 0 2.858-.15 3.871-.397a2.24 2.24 0 0 1 .66-1.58l.53-.53-.53-.531a2.25 2.25 0 0 1-.523-2.366" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M4 9a.75.75 0 0 0-.75.75V12H4c-.75 0-.75.002-.75.002v.035a1.4 1.4 0 0 0 .024.215c.021.128.061.296.136.489.152.39.441.87.977 1.329 1.066.913 3.023 1.68 6.613 1.68s5.547-.767 6.613-1.68c.536-.46.825-.938.977-1.33a2.5 2.5 0 0 0 .156-.648l.003-.055v-.02l.001-.01v-.005S18.75 12 18 12h.75V9.75A.75.75 0 0 0 18 9c-.462-.001-.863.285-1.223.573l-.088.067c-.69.493-2.256 1.11-5.689 1.11s-4.999-.617-5.69-1.11a1 1 0 0 1-.073-.071C4.954 9.266 4.414 8.999 4 9" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M4.387 3.93C5.453 3.018 7.41 2.25 11 2.25s5.547.767 6.613 1.68c.536.46.825.939.977 1.33a2.5 2.5 0 0 1 .156.648 1.2 1.2 0 0 1-.02.344 2.5 2.5 0 0 1-.136.489c-.152.39-.441.87-.977 1.328C16.547 8.983 14.59 9.75 11 9.75s-5.547-.767-6.613-1.68c-.536-.46-.825-.939-.977-1.33a2.5 2.5 0 0 1-.136-.488 1.4 1.4 0 0 1-.024-.256q.002-.125.024-.248c.021-.128.061-.295.136-.489.152-.39.441-.87.977-1.328" clip-rule="evenodd"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m17.121 21.364 2.122-2.122m2.121-2.121-2.121 2.121m0 0-2.122-2.121m2.122 2.121 2.121 2.121"/></svg>');}
+
+  .gx-icon {
+    display: inline-block;
+    font-size: var(--gx-size);
+
+    &::before {
+      content: " ";
+      display: block;
+      background: currentColor;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      width: 1em;
+      height: 1em;
+    }
+  }
+</style>
